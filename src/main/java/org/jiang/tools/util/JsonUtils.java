@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class JsonUtils {
 
-    private static ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     static {
         objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
@@ -45,11 +45,11 @@ public class JsonUtils {
     }
 
     public static <T> List<T> toList(String json, Class<T> cls) {
-        List list = toBean(json, List.class);
+        List<?> list = toBean(json, List.class);
         return toList(list, cls);
     }
 
-    public static <T> List<T> toList(List list, Class<T> cls) {
+    public static <T> List<T> toList(List<?> list, Class<T> cls) {
         List<T> result = new ArrayList<>(list.size());
         list.forEach(obj -> result.add(toBean(obj, cls)));
         return result;

@@ -23,4 +23,9 @@ public class AsynExecDecorator extends BaseDecorator<Thread> {
         return thread;
     }
 
+    public static Thread run(CodeSegment codeSegment) {
+        AsynExecDecorator decorator = new AsynExecDecorator(codeSegment);
+        return decorator.run();
+    }
+
 }

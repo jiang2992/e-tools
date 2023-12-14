@@ -1,4 +1,7 @@
-import org.jiang.tools.lock.SpinLock;
+import org.jiang.tools.decorator.AsynExecDecorator;
+import org.jiang.tools.lock.Lock;
+import org.jiang.tools.lock.SpinFairLock;
+import org.jiang.tools.util.WrapValue;
 import org.junit.Test;
 
 /**
@@ -8,15 +11,15 @@ import org.junit.Test;
 public class ThreadTests {
 
     private int count = 0;
-    private SpinLock lock = new SpinLock();
+    private final Lock lock = new SpinFairLock();
 
-
-    public void execute() {
+    public void execute(int index) {
+        lock.lock();
+        System.out.println("线程INDEX: " + index);
         try {
             Thread.sleep(10);
         } catch (Exception ignore) {
         }
-        lock.lock();
         count++;
         lock.unlock();
     }
@@ -26,13 +29,12 @@ public class ThreadTests {
         long startTime = System.currentTimeMillis();
         Thread[] ts = new Thread[10];
         for (int i = 0; i < ts.length; i++) {
-            Thread thread = new Thread(() -> {
+            WrapValue<Integer> index = WrapValue.of(i);
+            ts[i] = AsynExecDecorator.run(() -> {
                 for (int j = 0; j < 100; j++) {
-                    this.execute();
+                    this.execute(index.getValue());
                 }
             });
-            ts[i] = thread;
-            thread.start();
         }
 
         for (int i = 0; i < ts.length; i++) {

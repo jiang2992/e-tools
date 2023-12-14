@@ -5,7 +5,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * 自旋锁
- * 适用于执行时间较短的代码片段
+ * 非公平锁、可重入
+ * 适用于执行时间较短或竞争不激烈的代码片段
  *
  * @author Bin
  * @date 2021/3/22 15:14
@@ -33,9 +34,9 @@ public class SpinLock implements Lock {
         }
         if (count > 0) {
             count--;
-        } else {
-            owner.set(null);
+            return;
         }
+        owner.set(null);
     }
 
 }

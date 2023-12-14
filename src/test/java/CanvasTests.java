@@ -2,9 +2,7 @@ import org.jiang.tools.canvas.*;
 import org.jiang.tools.image.ImageMode;
 import org.junit.Test;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 

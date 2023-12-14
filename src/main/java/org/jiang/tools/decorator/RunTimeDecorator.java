@@ -20,4 +20,9 @@ public class RunTimeDecorator extends BaseDecorator<Long> {
         return endTime - startTime;
     }
 
+    public static Long run(CodeSegment codeSegment) {
+        RunTimeDecorator decorator = new RunTimeDecorator(codeSegment);
+        return decorator.run();
+    }
+
 }
