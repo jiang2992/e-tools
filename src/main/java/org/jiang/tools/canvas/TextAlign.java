@@ -4,7 +4,7 @@ package org.jiang.tools.canvas;
  * 文本水平排列常量
  *
  * @author Bin
- * @date 2021/4/19 12:00
+ * @since 1.0.0
  */
 public interface TextAlign {
 

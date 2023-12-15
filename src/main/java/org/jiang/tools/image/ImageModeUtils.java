@@ -9,7 +9,7 @@ import java.awt.*;
  * 图片显示模式工具类
  *
  * @author Bin
- * @date 2020/12/15 09:34
+ * @since 1.0.0
  */
 public class ImageModeUtils {
 

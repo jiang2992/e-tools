@@ -10,7 +10,7 @@ import java.awt.*;
  * 画板元素：图片
  *
  * @author Bin
- * @date 2020/12/14 16:36
+ * @since 1.0.0
  */
 @Getter
 @Setter

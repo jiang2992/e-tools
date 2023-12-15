@@ -17,7 +17,7 @@ import java.util.function.Function;
  * 日期格式工具类
  *
  * @author Bin
- * @date 2020/12/11 15:19
+ * @since 1.0.0
  */
 public class DateFormatUtils {
 

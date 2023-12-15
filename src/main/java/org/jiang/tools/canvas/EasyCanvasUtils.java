@@ -18,7 +18,7 @@ import java.util.List;
  * EasyCanvas 工具类
  *
  * @author Bin
- * @date 2020/12/14 17:14
+ * @since 1.0.0
  */
 public final class EasyCanvasUtils {
 

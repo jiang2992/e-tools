@@ -4,7 +4,7 @@ package org.jiang.tools.util;
  * 字符串工具类
  *
  * @author Bin
- * @date 2021/9/28 16:31
+ * @since 1.0.0
  */
 public class StringUtils {
 

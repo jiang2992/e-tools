@@ -4,7 +4,7 @@ package org.jiang.tools.decorator;
  * 异步执行装饰器
  *
  * @author Bin
- * @date 2023/12/12 17:37
+ * @since 1.0.0
  */
 public class AsynExecDecorator extends BaseDecorator<Thread> {
 

@@ -4,7 +4,7 @@ package org.jiang.tools.constants;
  * 请求相关常量
  *
  * @author Bin
- * @date 2020-01-08 10:04
+ * @since 1.0.0
  */
 public interface RequestConstants {
 

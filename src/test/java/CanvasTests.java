@@ -10,7 +10,7 @@ import java.io.IOException;
  * Canvas相关测试类
  *
  * @author Bin
- * @date 2020/12/11 16:24
+ * @since 1.0.0
  */
 public class CanvasTests {
 

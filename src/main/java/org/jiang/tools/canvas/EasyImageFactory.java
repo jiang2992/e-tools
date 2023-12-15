@@ -12,7 +12,7 @@ import java.net.URL;
  * 图片元素工厂类
  *
  * @author Bin
- * @date 2020/12/14 17:15
+ * @since 1.0.0
  */
 public final class EasyImageFactory {
 

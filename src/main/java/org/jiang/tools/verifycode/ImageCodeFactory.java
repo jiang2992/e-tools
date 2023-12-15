@@ -13,7 +13,7 @@ import java.util.Random;
  * 图片验证码工厂
  *
  * @author Bin
- * @date 2022/1/5 10:51
+ * @since 1.0.0
  */
 @Getter
 @Setter

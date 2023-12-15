@@ -6,7 +6,7 @@ import java.util.function.Supplier;
  * 断言工具类
  *
  * @author Bin
- * @date 2020-03-13 11:30
+ * @since 1.0.0
  */
 public class Assert {
 

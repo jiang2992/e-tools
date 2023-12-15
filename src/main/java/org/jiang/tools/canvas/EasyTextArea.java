@@ -9,7 +9,7 @@ import java.awt.*;
  * 画板元素：文本域
  *
  * @author Bin
- * @date 2020/12/14 16:53
+ * @since 1.0.0
  */
 @Getter
 @Setter

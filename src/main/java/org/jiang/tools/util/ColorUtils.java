@@ -7,7 +7,7 @@ import java.util.Random;
  * 颜色工具类
  *
  * @author Bin
- * @date 2022/1/5 11:10
+ * @since 1.0.0
  */
 public class ColorUtils {
 

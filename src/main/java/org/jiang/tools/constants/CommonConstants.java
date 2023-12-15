@@ -4,7 +4,7 @@ package org.jiang.tools.constants;
  * 公共常量
  *
  * @author Bin
- * @date 2020-01-08 10:08
+ * @since 1.0.0
  */
 public interface CommonConstants {
 

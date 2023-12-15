@@ -11,7 +11,7 @@ import java.util.function.Function;
  * EasyDate：提供日期对象的流式转换
  *
  * @author Bin
- * @date 2020/12/11 15:02
+ * @since 1.0.0
  */
 public class EasyDate {
 

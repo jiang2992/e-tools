@@ -7,7 +7,7 @@ import lombok.Setter;
  * 图片绘制位置信息
  *
  * @author Bin
- * @date 2020/12/15 09:44
+ * @since 1.0.0
  */
 @Getter
 @Setter

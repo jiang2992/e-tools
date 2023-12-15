@@ -4,7 +4,7 @@ import org.junit.Test;
 
 /**
  * @author Bin
- * @date 2020/12/17 15:03
+ * @since 1.0.0
  */
 public class OtherTests {
 

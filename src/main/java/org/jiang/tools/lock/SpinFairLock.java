@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 适用于执行时间较短或竞争不激烈的代码片段
  *
  * @author Bin
- * @date 2023/12/14 14:41
+ * @since 1.0.0
  */
 public class SpinFairLock implements Lock {
 

@@ -4,7 +4,7 @@ package org.jiang.tools.lock;
  * 锁
  *
  * @author Bin
- * @date 2021/3/23 09:30
+ * @since 1.0.0
  */
 public interface Lock {
 

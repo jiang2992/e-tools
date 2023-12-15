@@ -9,7 +9,7 @@ import java.util.UUID;
  * ID工具类
  *
  * @author Bin
- * @date 2020-10-05 14:41
+ * @since 1.0.0
  */
 public class IdUtils {
 

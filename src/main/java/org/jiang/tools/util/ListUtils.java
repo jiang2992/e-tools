@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
  * List集合工具类
  *
  * @author Bin
- * @date 2020-11-13 16:06
+ * @since 1.0.0
  */
 public class ListUtils {
 

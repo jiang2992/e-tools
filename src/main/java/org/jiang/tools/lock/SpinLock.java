@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * 适用于执行时间较短或竞争不激烈的代码片段
  *
  * @author Bin
- * @date 2021/3/22 15:14
+ * @since 1.0.0
  */
 public class SpinLock implements Lock {
 

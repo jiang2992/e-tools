@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 画板元素
  *
  * @author Bin
- * @date 2020/12/14 16:35
+ * @since 1.0.0
  */
 @Getter
 @Setter

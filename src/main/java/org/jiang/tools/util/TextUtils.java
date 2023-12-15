@@ -4,7 +4,7 @@ package org.jiang.tools.util;
  * 文本工具类
  *
  * @author Bin
- * @date 2020-09-16 17:28
+ * @since 1.0.0
  */
 public class TextUtils {
 

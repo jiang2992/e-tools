@@ -11,7 +11,7 @@ import java.util.Map;
  * 对象属性工具类
  *
  * @author Bin
- * @date 2021/9/28 16:18
+ * @since 1.0.0
  */
 public class ObjectPropertyUtils {
 

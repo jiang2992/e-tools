@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  * @author Bin
- * @date 2021/3/17 16:33
+ * @since 1.0.0
  */
 public class ThreadTests {
 

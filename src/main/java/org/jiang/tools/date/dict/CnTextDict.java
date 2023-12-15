@@ -4,7 +4,7 @@ package org.jiang.tools.date.dict;
  * 星期相关字典（中文）
  *
  * @author Bin
- * @date 2021/6/18 09:56
+ * @since 1.0.0
  */
 public class CnTextDict extends TextDict {
 

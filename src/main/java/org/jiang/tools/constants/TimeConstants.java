@@ -4,7 +4,7 @@ package org.jiang.tools.constants;
  * 时长常量类
  *
  * @author Bin
- * @date 2020-07-15 16:01
+ * @since 1.0.0
  */
 public interface TimeConstants {
 

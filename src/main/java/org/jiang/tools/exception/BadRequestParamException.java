@@ -5,7 +5,7 @@ package org.jiang.tools.exception;
  * 不记为执行失败
  *
  * @author Bin
- * @date 2020-01-08 10:31
+ * @since 1.0.0
  */
 public class BadRequestParamException extends BadRequestException {
 

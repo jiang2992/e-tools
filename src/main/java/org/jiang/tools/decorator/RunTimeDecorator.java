@@ -4,7 +4,7 @@ package org.jiang.tools.decorator;
  * 运行时间装饰器
  *
  * @author Bin
- * @date 2020/12/29 14:45
+ * @since 1.0.0
  */
 public class RunTimeDecorator extends BaseDecorator<Long> {
 

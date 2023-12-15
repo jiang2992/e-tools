@@ -4,7 +4,7 @@ package org.jiang.tools.exception;
  * 自定义异常基类
  *
  * @author Bin
- * @date 2020-01-08 10:31
+ * @since 1.0.0
  */
 public abstract class BaseCustomException extends RuntimeException {
 

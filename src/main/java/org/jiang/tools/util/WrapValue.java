@@ -4,7 +4,7 @@ package org.jiang.tools.util;
  * 值包装工具类
  *
  * @author Bin
- * @date 2020-11-02 22:01
+ * @since 1.0.0
  */
 public class WrapValue<T> {
 

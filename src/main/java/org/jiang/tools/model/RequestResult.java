@@ -16,7 +16,7 @@ import java.io.Serializable;
  * 接口调用结果
  *
  * @author Bin
- * @date 2018/12/23 1:03
+ * @since 1.0.0
  */
 @Getter
 @Setter

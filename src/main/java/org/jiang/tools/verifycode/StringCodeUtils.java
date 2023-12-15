@@ -8,7 +8,7 @@ import java.util.Random;
  * 验证码工具类
  *
  * @author Bin
- * @date 2021/12/24 17:21
+ * @since 1.0.0
  */
 public class StringCodeUtils {
 

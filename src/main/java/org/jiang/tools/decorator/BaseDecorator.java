@@ -4,7 +4,7 @@ package org.jiang.tools.decorator;
  * 装饰器基类
  *
  * @author Bin
- * @date 2020/12/29 14:49
+ * @since 1.0.0
  */
 public abstract class BaseDecorator<T> {
 

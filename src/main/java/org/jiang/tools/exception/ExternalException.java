@@ -4,7 +4,7 @@ package org.jiang.tools.exception;
  * 第三方异常
  *
  * @author Bin
- * @date 2020-01-08 10:31
+ * @since 1.0.0
  */
 public class ExternalException extends BaseCustomException {
 

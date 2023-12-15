@@ -4,7 +4,7 @@ package org.jiang.tools.image;
  * 图片显示模式常量类
  *
  * @author Bin
- * @date 2020/12/15 09:52
+ * @since 1.0.0
  */
 public interface ImageMode {
 

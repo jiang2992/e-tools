@@ -4,7 +4,7 @@ package org.jiang.tools.exception;
  * 权限校验异常
  *
  * @author Bin
- * @date 2020-01-08 17:17
+ * @since 1.0.0
  */
 public class PermissionsException extends BadRequestException {
 

@@ -4,9 +4,52 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.efadmin</groupId>
+    <groupId>top.efcloud</groupId>
     <artifactId>e-tools</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
+
+    <!-- 项目信息 -->
+    <name>ETools</name>
+    <description>Basic development tools.</description>
+    <url>https://github.com/jiang2992/${project.artifactId}</url>
+
+    <!-- 组织信息 -->
+    <organization>
+        <name>EFCloud</name>
+        <url>https://github.com/jiang2992/</url>
+    </organization>
+
+    <!-- 许可证信息 -->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!-- 开发者信息 -->
+    <developers>
+        <developer>
+            <id>bin</id>
+            <name>JiangBinBin</name>
+            <email>651520057@qq.com</email>
+        </developer>
+    </developers>
+
+    <!-- SCM信息 -->
+    <scm>
+        <connection>scm:git:git@github.com:jiang2992/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:git@github.com:jiang2992/${project.artifactId}.git</developerConnection>
+        <url>https://github.com/jiang2992/${project.artifactId}</url>
+        <tag>${project.version}</tag>
+    </scm>
+
+    <!-- 议题信息 -->
+    <issueManagement>
+        <system>GitHub Issue Management</system>
+        <url>https://github.com/FasterXML/${project.artifactId}/issues</url>
+    </issueManagement>
 
     <properties>
 
@@ -17,7 +60,7 @@
 
         <!-- other -->
         <lombok.version>1.18.24</lombok.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
 
     </properties>
 
@@ -40,7 +83,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.9.3</version>
+            <version>2.12.7.1</version>
             <scope>compile</scope>
         </dependency>
 
@@ -49,14 +92,30 @@
 
     <build>
         <plugins>
+            <!-- 编译插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
+            <!-- 文档插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 生成源码插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -71,7 +130,37 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- 发布插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- 你的秘钥ID -->
+                    <keyname>${gpg.keyname}</keyname>
+                    <passphraseServerId>${gpg.keyname}</passphraseServerId>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 </project>
