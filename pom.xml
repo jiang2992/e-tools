@@ -48,7 +48,7 @@
     <!-- 议题信息 -->
     <issueManagement>
         <system>GitHub Issue Management</system>
-        <url>https://github.com/FasterXML/${project.artifactId}/issues</url>
+        <url>https://github.com/jiang2992/${project.artifactId}/issues</url>
     </issueManagement>
 
     <properties>
@@ -144,7 +144,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!-- 你的秘钥ID -->
                     <keyname>${gpg.keyname}</keyname>
                     <passphraseServerId>${gpg.keyname}</passphraseServerId>
                 </configuration>
