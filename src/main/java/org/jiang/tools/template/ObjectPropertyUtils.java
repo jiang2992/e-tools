@@ -2,7 +2,7 @@ package org.jiang.tools.template;
 
 import org.jiang.tools.exception.SystemException;
 import org.jiang.tools.util.JsonUtils;
-import org.jiang.tools.util.StringUtils;
+import org.jiang.tools.text.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +19,13 @@ public class ObjectPropertyUtils {
     public static final String EXP_SEPARATOR = "\\.";
     public static final String EXP_EQUAL = "=";
 
+    /**
+     * 根据表达式提取对象属性值=
+     *
+     * @param obj 数据对象，支持普通对象和Map（暂不支持集合）
+     * @param exp 表达式（示例：$.user.id）
+     * @return 对象属性值
+     */
     public static Object extract(Object obj, String exp) {
         if (obj == null || StringUtils.isEmpty(exp)) {
             return null;
@@ -27,38 +34,49 @@ public class ObjectPropertyUtils {
             return obj;
         }
 
-        Map map;
+        // 统一将数据对象转为map
+        Map<?, ?> dataMap;
         if (obj instanceof Map) {
-            map = (Map) obj;
+            dataMap = (Map<?, ?>) obj;
         } else {
-            map = JsonUtils.toBean(obj, Map.class);
+            dataMap = JsonUtils.toBean(obj, Map.class);
         }
 
-        if (map == null || map.size() == 0) {
+        if (dataMap == null || dataMap.size() == 0) {
             return null;
         }
 
+        // 当前层级的数据对象
         Object tier;
+
         String[] keys = exp.split(EXP_SEPARATOR);
         if (EXP_ROOT.equals(keys[0])) {
-            tier = new HashMap<>(1);
-            ((Map) tier).put(EXP_ROOT, map);
-        } else {
+            Map<String, Object> map = new HashMap<>(1);
+            map.put(EXP_ROOT, dataMap);
             tier = map;
+        } else {
+            tier = dataMap;
         }
 
-        for (int i = 0; i < keys.length; i++) {
-            String key = keys[i];
+        // 逐层取出
+        for (String key : keys) {
             if (!(tier instanceof Map)) {
                 return null;
             }
-            Map tierMap = (Map) tier;
+            Map<?, ?> tierMap = (Map<?, ?>) tier;
             tier = tierMap.get(key);
         }
 
         return tier;
     }
 
+    /**
+     * 判断对象属性值等式是否成立
+     *
+     * @param obj 数据对象，支持普通对象和Map（暂不支持集合）
+     * @param exp 表达式
+     * @return 是否成立
+     */
     public static boolean judge(Object obj, String exp) {
         String[] strings = exp.split(EXP_EQUAL);
         if (strings.length == 0) {

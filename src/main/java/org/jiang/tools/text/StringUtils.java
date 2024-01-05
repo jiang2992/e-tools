@@ -1,10 +1,10 @@
-package org.jiang.tools.util;
+package org.jiang.tools.text;
 
 /**
  * 字符串工具类
  *
  * @author Bin
- * @since 1.0.0
+ * @since 1.1.0
  */
 public class StringUtils {
 

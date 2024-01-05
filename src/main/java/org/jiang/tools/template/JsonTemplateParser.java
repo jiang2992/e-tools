@@ -1,7 +1,7 @@
 package org.jiang.tools.template;
 
 import org.jiang.tools.util.JsonUtils;
-import org.jiang.tools.util.StringUtils;
+import org.jiang.tools.text.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;

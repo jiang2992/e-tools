@@ -24,7 +24,6 @@ public class ImageVerifyCode {
     }
 
     public void write(OutputStream outputStream) {
-
     }
 
 }

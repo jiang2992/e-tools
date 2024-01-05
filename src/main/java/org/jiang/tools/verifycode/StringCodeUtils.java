@@ -1,6 +1,6 @@
 package org.jiang.tools.verifycode;
 
-import org.jiang.tools.util.StringUtils;
+import org.jiang.tools.text.StringUtils;
 
 import java.util.Random;
 
