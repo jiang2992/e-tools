@@ -1,7 +1,6 @@
 import org.jiang.tools.decorator.AsynExecDecorator;
 import org.jiang.tools.geo.EasyGeo;
-import org.jiang.tools.util.GeoUtils;
-import org.jiang.tools.util.WrapValue;
+import org.jiang.tools.model.WrapValue;
 import org.junit.Test;
 
 /**
@@ -33,8 +32,7 @@ public class OtherTests {
 
     @Test
     public void geoTest2() {
-        GeoUtils.Point point = GeoUtils.calGcj02ToWgs84(116.41, 39.90);
-        System.out.println(point);
+        System.out.println(EasyGeo.ofGcj02(116.41, 39.90).toWgs84().value());
     }
 
 }

@@ -1,8 +1,10 @@
 package org.jiang.tools.geo;
 
 /**
+ * 地理位置工具类
+ *
  * @author Bin
- * @date 2023/12/18 17:39
+ * @since 1.1.0
  */
 public class LocationUtils {
 

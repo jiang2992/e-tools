@@ -1,4 +1,4 @@
-package org.jiang.tools.util;
+package org.jiang.tools.text;
 
 import org.jiang.tools.exception.BadArgumentException;
 import org.jiang.tools.lock.SpinLock;
@@ -17,7 +17,7 @@ public class IdUtils {
      * 生成UUID
      * 生成一串长度为32的随机字符串
      *
-     * @return UUID：
+     * @return UUID
      */
     public static String uuid() {
         return UUID.randomUUID().toString().replace("-", "");
@@ -27,6 +27,7 @@ public class IdUtils {
      * 雪花算法工厂类
      * 生成长度为18的整数
      * 在大多数情况下，先后生成的数会形成递增趋势
+     * 示例：SnowflakeFactory.create("1001").get()
      */
     public static class SnowflakeFactory {
 

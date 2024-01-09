@@ -1,4 +1,4 @@
-package org.jiang.tools.util;
+package org.jiang.tools.canvas;
 
 import java.awt.*;
 import java.util.Random;

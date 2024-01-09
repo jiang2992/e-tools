@@ -1,7 +1,6 @@
-package org.jiang.tools.template;
+package org.jiang.tools.json;
 
 import org.jiang.tools.exception.SystemException;
-import org.jiang.tools.util.JsonUtils;
 import org.jiang.tools.text.StringUtils;
 
 import java.util.HashMap;
@@ -42,7 +41,7 @@ public class ObjectPropertyUtils {
             dataMap = JsonUtils.toBean(obj, Map.class);
         }
 
-        if (dataMap == null || dataMap.size() == 0) {
+        if (dataMap == null || dataMap.isEmpty()) {
             return null;
         }
 

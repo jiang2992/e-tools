@@ -1,6 +1,5 @@
-package org.jiang.tools.template;
+package org.jiang.tools.json;
 
-import org.jiang.tools.util.JsonUtils;
 import org.jiang.tools.text.StringUtils;
 
 import java.util.HashMap;
@@ -10,6 +9,11 @@ import java.util.regex.Pattern;
 
 /**
  * Json模板解析器
+ * 示例：
+ * template: {id:1001,name:"${name}"}
+ * data: {name:"lisi"}
+ * ↓↓↓
+ * result: {id:1001,name:"lisi"}
  *
  * @author Bin
  * @since 1.0.0

@@ -1,4 +1,9 @@
-package org.jiang.tools.util;
+package org.jiang.tools.model;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
 
 /**
  * 值包装工具类
@@ -6,19 +11,13 @@ package org.jiang.tools.util;
  * @author Bin
  * @since 1.0.0
  */
-public class WrapValue<T> {
+@Setter
+@Getter
+public class WrapValue<T> implements Serializable {
 
     private T value;
 
     private WrapValue(T value) {
-        this.value = value;
-    }
-
-    public T getValue() {
-        return value;
-    }
-
-    public void setValue(T value) {
         this.value = value;
     }
 

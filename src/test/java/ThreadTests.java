@@ -1,7 +1,7 @@
 import org.jiang.tools.decorator.AsynExecDecorator;
 import org.jiang.tools.lock.Lock;
 import org.jiang.tools.lock.SpinFairLock;
-import org.jiang.tools.util.WrapValue;
+import org.jiang.tools.model.WrapValue;
 import org.junit.Test;
 
 /**

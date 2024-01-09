@@ -5,8 +5,10 @@ import lombok.Data;
 import org.jiang.tools.exception.BadArgumentException;
 
 /**
+ * EasyGeo：提供地理位置的坐标系转换及计算功能
+ *
  * @author Bin
- * @date 2023/12/18 09:51
+ * @since 1.1.0
  */
 public class EasyGeo {
 
@@ -127,13 +129,27 @@ public class EasyGeo {
         return this;
     }
 
+    /**
+     * 计算与目标位置的距离
+     *
+     * @param easyGeo 目标位置
+     * @return 距离（单位：米）
+     */
     public long calculateDistance(EasyGeo easyGeo) {
         if (easyGeo.coord.coord_sys != this.coord.coord_sys) {
-            throw new BadArgumentException();
+            throw new BadArgumentException(String.format("所用坐标系不同，无法进行计算：%s,%s", this.coord.getCoordSysText(), easyGeo.coord.getCoordSysText()));
         }
         return this.calculateDistance(easyGeo.coord.lon, easyGeo.coord.lat);
     }
 
+    /**
+     * 计算与目标位置的距离
+     * 注意：调用改方法时，请保证所用坐标系一致
+     *
+     * @param lon 经度
+     * @param lat 纬度
+     * @return 距离（单位：米）
+     */
     public long calculateDistance(double lon, double lat) {
         return LocationUtils.calculateDistance(this.coord.lon, this.coord.lat, lon, lat);
     }

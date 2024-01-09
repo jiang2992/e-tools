@@ -1,8 +1,10 @@
 package org.jiang.tools.geo;
 
 /**
+ * 经纬度转换器
+ *
  * @author Bin
- * @date 2023/12/18 10:13
+ * @since 1.1.0
  */
 public class CoordinateConverter {
 

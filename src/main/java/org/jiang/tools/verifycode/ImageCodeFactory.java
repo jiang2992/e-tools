@@ -3,7 +3,7 @@ package org.jiang.tools.verifycode;
 import lombok.Getter;
 import lombok.Setter;
 import org.jiang.tools.canvas.*;
-import org.jiang.tools.util.ColorUtils;
+import org.jiang.tools.canvas.ColorUtils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

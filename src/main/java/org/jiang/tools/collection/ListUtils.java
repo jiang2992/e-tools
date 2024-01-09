@@ -1,4 +1,4 @@
-package org.jiang.tools.util;
+package org.jiang.tools.collection;
 
 import java.util.*;
 import java.util.function.Function;

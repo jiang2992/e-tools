@@ -1,4 +1,4 @@
-package org.jiang.tools.util;
+package org.jiang.tools.collection;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -21,7 +21,7 @@ public class SetUtils {
     }
 
     public static <T> Set<T> asList(List<T> list) {
-        if (list == null || list.size() == 0) {
+        if (list == null || list.isEmpty()) {
             return new LinkedHashSet<>(0);
         }
         return new LinkedHashSet<>(list);
