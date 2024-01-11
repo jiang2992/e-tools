@@ -1,4 +1,4 @@
-package org.jiang.tools.util;
+package org.jiang.tools.test;
 
 import java.util.function.Supplier;
 

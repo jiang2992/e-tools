@@ -1,5 +1,8 @@
 package org.jiang.tools.text;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * 字符串工具类
  *
@@ -7,6 +10,8 @@ package org.jiang.tools.text;
  * @since 1.1.0
  */
 public class StringUtils {
+
+    private final static Pattern HUMP_PATTERN = Pattern.compile("[A-Z]");
 
     /**
      * 判断字符串是否为空
@@ -42,6 +47,42 @@ public class StringUtils {
             sb.append(c);
         }
         return sb.append(str).toString();
+    }
+
+    /**
+     * 字符串右边填充
+     *
+     * @param str    操作字符串
+     * @param length 填充后长度
+     * @param c      填充字符
+     * @return 字符串
+     */
+    public static String rightPad(String str, int length, char c) {
+        StringBuilder sb = new StringBuilder(str);
+        for (int i = (length - str.length()); i > 0; i--) {
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 驼峰命名转下划线命名
+     *
+     * @param str 字符串
+     * @return 转为下划线命名的字符串
+     */
+    public static String humpToLine(String str) {
+        Matcher matcher = HUMP_PATTERN.matcher(str);
+        StringBuffer sb = new StringBuffer();
+        while (matcher.find()) {
+            if (matcher.start() == 0) {
+                matcher.appendReplacement(sb, matcher.group().toLowerCase());
+                continue;
+            }
+            matcher.appendReplacement(sb, "_" + matcher.group().toLowerCase());
+        }
+        matcher.appendTail(sb);
+        return sb.toString();
     }
 
 }
