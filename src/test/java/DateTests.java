@@ -86,24 +86,60 @@ public class DateTests {
     }
 
     @Test
-    public void test(){
-        // 获取昨日开始时间
-        System.out.println(EasyDate.now().yesterday().startTime().value());
+    public void test() {
+// 获取今天开始时间
+        EasyDate.now().startTime().value();
 
-        // 获取7天前的结束时间
-        System.out.println(EasyDate.now().addDays(-7).endTime().value());
+        // 获取今天结束时间
+        EasyDate.now().endTime().value();
 
-        // 获取某一年的最后一天
-        System.out.println(EasyDate.of("2020-05-01 12:00:00").yearEndDay().value());
+        // 获取昨天开始时间
+        EasyDate.now().yesterday().startTime().value();
 
-        // 获取本月的第一天的12:00
-        System.out.println(EasyDate.now().monthStartDay().time("12:00").value());
+        // 获取昨天结束时间
+        EasyDate.now().yesterday().endTime().value();
 
-        // 获取格式化日期字符串
-        System.out.println(EasyDate.now().endTime().stringValue("HH:mm:ss"));
+        // 获取7天前开始时间
+        EasyDate.now().addDays(-7).startTime().value();
 
-        // 自定义额外操作
-        System.out.println(EasyDate.now().extra(c -> c.set(Calendar.MONTH, 1)).endTime().value());
+        // 获取7天后结束时间
+        EasyDate.now().addDays(7).endTime().value();
+
+        // 获取下个月第一天的开始时间
+        EasyDate.now().addMonth(1).startTime().value();
+
+        // 获取下个月最后一天的结束时间
+        EasyDate.now().addMonth(1).endTime().value();
+
+        // 获取本周第一天开始时间
+        EasyDate.now().weekStartDay().startTime().value();
+
+        // 获取本周最后一天结束时间
+        EasyDate.now().weekEndDay().endTime().value();
+
+        // 获取本月第一天的开始时间
+        EasyDate.now().monthStartDay().startTime().value();
+
+        // 获取本月最后一天的结束时间
+        EasyDate.now().monthEndDay().endTime().value();
+
+        // 获取本年第一天的开始时间
+        EasyDate.now().yearStartDay().startTime().value();
+
+        // 获取本年最后一天的结束时间
+        EasyDate.now().yearEndDay().endTime().value();
+
+        // 获取去年最后一个月第一天的开始时间
+        EasyDate.now().addYear(-1).yearEndMonth().monthStartDay().startTime().value();
+
+        // 获取明天的指定时间
+        EasyDate.now().tomorrow().time("12:00").value();
+
+        // 自定义额外设置时间
+        EasyDate.now().yesterday().extra(c -> c.set(Calendar.HOUR_OF_DAY, 12));
+
+        // 格式化时间
+        EasyDate.of(new Date()).stringValue("yyyy-MM-dd");
     }
 
 }
