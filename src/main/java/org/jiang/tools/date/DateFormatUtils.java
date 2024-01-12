@@ -97,6 +97,18 @@ public class DateFormatUtils {
 
     /**
      * 获取日期差的可读文本
+     * 以当前时间为准
+     *
+     * @param date     目标日期对象
+     * @param textDict 文本字典
+     * @return 日期差可读文本
+     */
+    public static String toDiffText(Date date, TextDict textDict) {
+        return toDiffText(new Date(), date, textDict);
+    }
+
+    /**
+     * 获取日期差的可读文本
      *
      * @param currentDate 当前日期对象
      * @param date        目标日期对象

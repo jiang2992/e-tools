@@ -113,7 +113,7 @@ public class EasyNumber {
      * @return 数值
      */
     public BigDecimal value() {
-        return this.decimal;
+        return this.decimal.setScale(this.roundRule.getScale(), this.roundRule.getMode());
     }
 
     /**
@@ -188,7 +188,7 @@ public class EasyNumber {
         if (this.remainedDecimal != null && this.remainedDecimal.doubleValue() > 0) {
             result.append("(");
             result.append("~");
-            result.append(this.remainedDecimal);
+            result.append(this.remainder());
             result.append(")");
         }
         return result.toString();
@@ -204,7 +204,7 @@ public class EasyNumber {
         if (this.remainedDecimal == null) {
             throw new BadArgumentException("没有预先的除法运算");
         }
-        return this.remainedDecimal;
+        return this.remainedDecimal.setScale(this.roundRule.getScale(), this.roundRule.getMode());
     }
 
     /**
@@ -475,7 +475,7 @@ public class EasyNumber {
 
     private void addCourse(String symbol, EasyNumber number) {
         boolean isAddSubtract = SYMBOL_ADD.equals(symbol) || SYMBOL_SUBTRACT.equals(symbol);
-        String str = number.courseString != null ? String.format("(%s)", number.courseString) : number.toString();
+        String str = number.courseString != null ? String.format("(%s)", number.courseString) : number.value().setScale(this.roundRule.getScale(), this.roundRule.getMode()).toString();
         if (isAddSubtract && leftBracketIndex == -1) {
             leftBracketIndex = 0;
         }

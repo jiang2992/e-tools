@@ -85,4 +85,25 @@ public class DateTests {
         System.out.println(DateFormatUtils.toDiffText(currentDate, date, new CnTextDict()));
     }
 
+    @Test
+    public void test(){
+        // 获取昨日开始时间
+        System.out.println(EasyDate.now().yesterday().startTime().value());
+
+        // 获取7天前的结束时间
+        System.out.println(EasyDate.now().addDays(-7).endTime().value());
+
+        // 获取某一年的最后一天
+        System.out.println(EasyDate.of("2020-05-01 12:00:00").yearEndDay().value());
+
+        // 获取本月的第一天的12:00
+        System.out.println(EasyDate.now().monthStartDay().time("12:00").value());
+
+        // 获取格式化日期字符串
+        System.out.println(EasyDate.now().endTime().stringValue("HH:mm:ss"));
+
+        // 自定义额外操作
+        System.out.println(EasyDate.now().extra(c -> c.set(Calendar.MONTH, 1)).endTime().value());
+    }
+
 }
