@@ -1,5 +1,7 @@
 package org.jiang.tools.date;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
@@ -43,13 +45,13 @@ public class EasyDate {
         return of(date);
     }
 
-    private Date execute() {
+    private Calendar execute() {
         Calendar calendar = this.calendar;
         while (!process.isEmpty()) {
             calendar = process.poll().apply(calendar);
         }
         this.calendar = calendar;
-        return calendar.getTime();
+        return calendar;
     }
 
     /**
@@ -67,7 +69,16 @@ public class EasyDate {
      * @return 日期对象
      */
     public Date value() {
-        return new Date(this.execute().getTime());
+        return new Date(this.execute().getTime().getTime());
+    }
+
+    /**
+     * 获取执行后的日期
+     *
+     * @return 日期对象
+     */
+    public LocalDateTime localValue() {
+        return LocalDateTime.ofInstant(this.execute().toInstant(), ZoneId.systemDefault());
     }
 
     /**

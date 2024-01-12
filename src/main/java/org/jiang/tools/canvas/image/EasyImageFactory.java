@@ -1,6 +1,6 @@
-package org.jiang.tools.canvas;
+package org.jiang.tools.canvas.image;
 
-import org.jiang.tools.image.ImageMode;
+import org.jiang.tools.canvas.element.EasyImage;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

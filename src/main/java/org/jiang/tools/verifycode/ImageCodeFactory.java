@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.jiang.tools.canvas.*;
 import org.jiang.tools.canvas.ColorUtils;
+import org.jiang.tools.canvas.element.EasyLine;
+import org.jiang.tools.canvas.element.EasyText;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

@@ -1,4 +1,4 @@
-package org.jiang.tools.image;
+package org.jiang.tools.canvas.image;
 
 /**
  * 图片显示模式常量类

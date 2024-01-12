@@ -1,5 +1,8 @@
 import org.jiang.tools.canvas.*;
-import org.jiang.tools.image.ImageMode;
+import org.jiang.tools.canvas.element.EasyRect;
+import org.jiang.tools.canvas.element.EasyText;
+import org.jiang.tools.canvas.image.EasyImageFactory;
+import org.jiang.tools.canvas.image.ImageMode;
 import org.junit.Test;
 
 import java.awt.*;

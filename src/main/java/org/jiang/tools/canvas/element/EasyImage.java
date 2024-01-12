@@ -1,8 +1,8 @@
-package org.jiang.tools.canvas;
+package org.jiang.tools.canvas.element;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.jiang.tools.image.ImageMode;
+import org.jiang.tools.canvas.image.ImageMode;
 
 import java.awt.*;
 

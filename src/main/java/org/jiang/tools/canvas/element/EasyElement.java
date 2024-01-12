@@ -1,4 +1,4 @@
-package org.jiang.tools.canvas;
+package org.jiang.tools.canvas.element;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
-public class EasyElement implements Serializable {
+public abstract class EasyElement implements Serializable {
 
     /**
      * 元素位置x

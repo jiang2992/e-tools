@@ -1,4 +1,4 @@
-package org.jiang.tools.canvas;
+package org.jiang.tools.canvas.element;
 
 import lombok.Getter;
 import lombok.Setter;
