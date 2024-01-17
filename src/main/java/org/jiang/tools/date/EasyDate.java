@@ -20,7 +20,7 @@ public class EasyDate {
     private Calendar calendar;
     private final Queue<Function<Calendar, Calendar>> process;
 
-    private EasyDate(Date date) {
+    public EasyDate(Date date) {
         this.calendar = this.createCalendar(date);
         this.process = new LinkedList<>();
     }

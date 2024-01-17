@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Canvas相关测试类
+ * 验证码相关测试类
  *
  * @author Bin
  * @since 1.0.0

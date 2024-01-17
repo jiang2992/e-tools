@@ -1,7 +1,5 @@
 package org.jiang.tools.geo;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.jiang.tools.exception.BadArgumentException;
 
 /**
@@ -12,17 +10,13 @@ import org.jiang.tools.exception.BadArgumentException;
  */
 public class EasyGeo {
 
-    public static final byte COORD_SYS_WGS84 = 1;
-    public static final byte COORD_SYS_GCJ02 = 2;
-    public static final byte COORD_SYS_BD09 = 3;
+    private EasyCoord coord;
 
-    private Coord coord;
-
-    public EasyGeo(Coord coord) {
+    public EasyGeo(EasyCoord coord) {
         this.coord = coord;
     }
 
-    public static EasyGeo of(Coord coord) {
+    public static EasyGeo of(EasyCoord coord) {
         return new EasyGeo(coord);
     }
 
@@ -34,7 +28,7 @@ public class EasyGeo {
      * @return EasyGeo
      */
     public static EasyGeo ofGcj02(double lon, double lat) {
-        Coord coord = new Coord(lon, lat, COORD_SYS_GCJ02);
+        EasyCoord coord = EasyCoord.ofGcj02(lon, lat);
         return of(coord);
     }
 
@@ -46,7 +40,7 @@ public class EasyGeo {
      * @return EasyGeo
      */
     public static EasyGeo ofWgs84(double lon, double lat) {
-        Coord coord = new Coord(lon, lat, COORD_SYS_WGS84);
+        EasyCoord coord = EasyCoord.ofWgs84(lon, lat);
         return of(coord);
     }
 
@@ -58,11 +52,11 @@ public class EasyGeo {
      * @return EasyGeo
      */
     public static EasyGeo ofBd09(double lon, double lat) {
-        Coord coord = new Coord(lon, lat, COORD_SYS_BD09);
+        EasyCoord coord = EasyCoord.ofBd09(lon, lat);
         return of(coord);
     }
 
-    public Coord value() {
+    public EasyCoord value() {
         return this.coord;
     }
 
@@ -73,16 +67,16 @@ public class EasyGeo {
      */
     public EasyGeo toWgs84() {
         double[] result = null;
-        switch (this.coord.coord_sys) {
-            case COORD_SYS_GCJ02:
-                result = CoordinateConverter.gcj02ToWgs84(coord.lon, coord.lat);
+        switch (this.coord.getCoordSys()) {
+            case EasyCoord.COORD_SYS_GCJ02:
+                result = CoordinateConverter.gcj02ToWgs84(coord.getLon(), coord.getLat());
                 break;
-            case COORD_SYS_BD09:
-                result = CoordinateConverter.bd09ToWgs84(coord.lon, coord.lat);
+            case EasyCoord.COORD_SYS_BD09:
+                result = CoordinateConverter.bd09ToWgs84(coord.getLon(), coord.getLat());
                 break;
         }
         if (result != null) {
-            this.coord = new Coord(result[0], result[1], COORD_SYS_WGS84);
+            this.coord = EasyCoord.ofWgs84(result[0], result[1]);
         }
         return this;
     }
@@ -94,16 +88,16 @@ public class EasyGeo {
      */
     public EasyGeo toGcj02() {
         double[] result = null;
-        switch (this.coord.coord_sys) {
-            case COORD_SYS_WGS84:
-                result = CoordinateConverter.wgs84ToGcj02(coord.lon, coord.lat);
+        switch (this.coord.getCoordSys()) {
+            case EasyCoord.COORD_SYS_WGS84:
+                result = CoordinateConverter.wgs84ToGcj02(coord.getLon(), coord.getLat());
                 break;
-            case COORD_SYS_BD09:
-                result = CoordinateConverter.bd09ToGcj02(coord.lon, coord.lat);
+            case EasyCoord.COORD_SYS_BD09:
+                result = CoordinateConverter.bd09ToGcj02(coord.getLon(), coord.getLat());
                 break;
         }
         if (result != null) {
-            this.coord = new Coord(result[0], result[1], COORD_SYS_GCJ02);
+            this.coord = EasyCoord.ofGcj02(result[0], result[1]);
         }
         return this;
     }
@@ -115,16 +109,16 @@ public class EasyGeo {
      */
     public EasyGeo toBd09() {
         double[] result = null;
-        switch (this.coord.coord_sys) {
-            case COORD_SYS_WGS84:
-                result = CoordinateConverter.wgs84ToBd09(coord.lon, coord.lat);
+        switch (this.coord.getCoordSys()) {
+            case EasyCoord.COORD_SYS_WGS84:
+                result = CoordinateConverter.wgs84ToBd09(coord.getLon(), coord.getLat());
                 break;
-            case COORD_SYS_GCJ02:
-                result = CoordinateConverter.gcj02ToBd09(coord.lon, coord.lat);
+            case EasyCoord.COORD_SYS_GCJ02:
+                result = CoordinateConverter.gcj02ToBd09(coord.getLon(), coord.getLat());
                 break;
         }
         if (result != null) {
-            this.coord = new Coord(result[0], result[1], COORD_SYS_BD09);
+            this.coord = EasyCoord.ofBd09(result[0], result[1]);
         }
         return this;
     }
@@ -136,10 +130,20 @@ public class EasyGeo {
      * @return 距离（单位：米）
      */
     public long calculateDistance(EasyGeo easyGeo) {
-        if (easyGeo.coord.coord_sys != this.coord.coord_sys) {
-            throw new BadArgumentException(String.format("所用坐标系不同，无法进行计算：%s,%s", this.coord.getCoordSysText(), easyGeo.coord.getCoordSysText()));
+        return this.calculateDistance(easyGeo.coord);
+    }
+
+    /**
+     * 计算与目标位置的距离
+     *
+     * @param easyCoord 目标位置
+     * @return 距离（单位：米）
+     */
+    public long calculateDistance(EasyCoord easyCoord) {
+        if (easyCoord.getCoordSys() != this.coord.getCoordSys()) {
+            throw new BadArgumentException(String.format("所用坐标系不同，无法进行计算：%s,%s", this.coord.getCoordSysText(), easyCoord.getCoordSysText()));
         }
-        return this.calculateDistance(easyGeo.coord.lon, easyGeo.coord.lat);
+        return this.calculateDistance(easyCoord.getLon(), easyCoord.getLat());
     }
 
     /**
@@ -151,37 +155,7 @@ public class EasyGeo {
      * @return 距离（单位：米）
      */
     public long calculateDistance(double lon, double lat) {
-        return LocationUtils.calculateDistance(this.coord.lon, this.coord.lat, lon, lat);
-    }
-
-    @Data
-    @AllArgsConstructor
-    public static class Coord {
-
-        private double lon;
-
-        private double lat;
-
-        private byte coord_sys;
-
-        public String getCoordSysText() {
-            switch (coord_sys) {
-                case 1:
-                    return "WGS84";
-                case 2:
-                    return "GCJ02";
-                case 3:
-                    return "BD09";
-                default:
-                    return null;
-            }
-        }
-
-        @Override
-        public String toString() {
-            return String.format(String.format("%s:lon=%s,lat=%s", getCoordSysText(), lon, lat));
-        }
-
+        return LocationUtils.calculateDistance(this.coord.getLon(), this.coord.getLat(), lon, lat);
     }
 
 }

@@ -5,6 +5,8 @@ import org.jiang.tools.model.WrapValue;
 import org.junit.Test;
 
 /**
+ * 多线程相关测试类
+ *
  * @author Bin
  * @since 1.0.0
  */

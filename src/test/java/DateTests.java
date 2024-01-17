@@ -87,7 +87,7 @@ public class DateTests {
 
     @Test
     public void test() {
-// 获取今天开始时间
+        // 获取今天开始时间
         EasyDate.now().startTime().value();
 
         // 获取今天结束时间
@@ -140,6 +140,7 @@ public class DateTests {
 
         // 格式化时间
         EasyDate.of(new Date()).stringValue("yyyy-MM-dd");
+
     }
 
 }

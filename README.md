@@ -70,4 +70,25 @@ public static void main(String[] args) {
 }
 ```
 
+
+### 地理位置转换与计算
+
+```java
+public static void main(String[] args) {
+
+    // 从Gcj02坐标系位置构造对象
+    EasyGeo easyGeo = EasyGeo.ofGcj02(116.41, 39.90);
+
+    // 计算与另一个坐标的距离（单位：米）
+    long distance = easyGeo.calculateDistance(EasyGeo.ofGcj02(116.4101, 39.9001));
+
+    // 转为Wgs84坐标系
+    EasyGeo.Coord b = easyGeo.toWgs84().value();
+
+    // 转为Bd09坐标系
+    EasyGeo.Coord c = easyGeo.toBd09().value();
+    
+}
+```
+
 // TODO
