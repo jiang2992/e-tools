@@ -1,3 +1,5 @@
+import lombok.SneakyThrows;
+import org.jiang.tools.decorator.RunTimeDecorator;
 import org.jiang.tools.geo.EasyCoord;
 import org.jiang.tools.geo.EasyGeo;
 import org.jiang.tools.geo.EasyGeoArea;
@@ -30,16 +32,26 @@ public class GeoTests {
         System.out.println(distance);
     }
 
+    @SneakyThrows
     @Test
     public void areaTest() {
         EasyGeoArea easyGeoArea = EasyGeoArea.ofGcj02();
-        easyGeoArea.add(113.26207,23.145471);
-        easyGeoArea.add(113.269384,23.14198);
-        easyGeoArea.add(113.267876,23.137129);
-//        easyGeoArea.add(113.261707,23.140748);
-        boolean contains = easyGeoArea.contains(113.263801,23.141261);
-//        boolean contains = easyGeoArea.contains(113.266062,23.145137);
-        System.out.println(contains);
+        easyGeoArea.add(116.395788, 39.907194);
+        easyGeoArea.add(116.399296, 39.907336);
+        easyGeoArea.add(116.399695, 39.900314);
+        easyGeoArea.add(116.396073, 39.900205);
+        RunTimeDecorator.run(() -> {
+            System.out.println(easyGeoArea.contains(116.398112, 39.906002)); // true
+            System.out.println(easyGeoArea.contains(116.39491, 39.923954)); // false
+        }, System.out::println);
+        RunTimeDecorator.run(() -> {
+            System.out.println("面积：" + easyGeoArea.acreage());
+        }, System.out::println);
+        easyGeoArea.add(116.395118, 39.903366);
+        RunTimeDecorator.run(() -> {
+            System.out.println("面积：" + easyGeoArea.acreage());
+        }, System.out::println);
+
     }
 
 }

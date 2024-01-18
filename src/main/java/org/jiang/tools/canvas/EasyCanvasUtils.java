@@ -1,9 +1,9 @@
 package org.jiang.tools.canvas;
 
 import org.jiang.tools.canvas.element.*;
-import org.jiang.tools.exception.SystemException;
 import org.jiang.tools.canvas.image.ImageDrawPosition;
 import org.jiang.tools.canvas.image.ImageModeUtils;
+import org.jiang.tools.exception.SystemException;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

@@ -91,6 +91,20 @@ public class CoordinateConverter {
     }
 
     /**
+     * 将球形坐标转换成平面坐标
+     *
+     * @param lon 经度
+     * @param lat 纬度
+     * @return 包含转换后X轴和Y轴的数组
+     */
+    public static double[] toCartesian(double lon, double lat) {
+        double x = lon * 20037508.34 / 180;
+        double y = Math.log(Math.tan((90 + lat) * Math.PI / 360)) / (Math.PI / 180);
+        y = y * 20037508.34 / 180;
+        return new double[]{x, y};
+    }
+
+    /**
      * 将坐标进行转换
      *
      * @param lon     经度

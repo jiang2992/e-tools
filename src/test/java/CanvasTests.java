@@ -1,4 +1,6 @@
-import org.jiang.tools.canvas.*;
+import org.jiang.tools.canvas.EasyCanvas;
+import org.jiang.tools.canvas.EasyCanvasUtils;
+import org.jiang.tools.canvas.EasyFont;
 import org.jiang.tools.canvas.element.EasyRect;
 import org.jiang.tools.canvas.element.EasyText;
 import org.jiang.tools.canvas.image.EasyImageFactory;

@@ -1,9 +1,7 @@
 package org.jiang.tools.geo;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-
-import static org.jiang.tools.geo.EasyGeo.of;
+import lombok.Getter;
 
 /**
  * 地理位置类
@@ -11,7 +9,7 @@ import static org.jiang.tools.geo.EasyGeo.of;
  * @author Bin
  * @since 1.1.2
  */
-@Data
+@Getter
 @AllArgsConstructor
 public class EasyCoord {
 
@@ -19,11 +17,11 @@ public class EasyCoord {
     public static final byte COORD_SYS_GCJ02 = 2;
     public static final byte COORD_SYS_BD09 = 3;
 
-    private double lon;
+    private final double lon;
 
-    private double lat;
+    private final double lat;
 
-    private byte coordSys;
+    private final byte coordSys;
 
     /**
      * 使用GCJ02坐标系构建对象

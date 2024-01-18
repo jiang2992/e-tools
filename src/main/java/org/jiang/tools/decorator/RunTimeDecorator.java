@@ -1,5 +1,7 @@
 package org.jiang.tools.decorator;
 
+import java.util.function.Consumer;
+
 /**
  * 运行时间装饰器
  *
@@ -23,6 +25,13 @@ public class RunTimeDecorator extends BaseDecorator<Long> {
     public static Long run(CodeSegment codeSegment) {
         RunTimeDecorator decorator = new RunTimeDecorator(codeSegment);
         return decorator.run();
+    }
+
+    public static Long run(CodeSegment codeSegment, Consumer<Long> consumer) {
+        RunTimeDecorator decorator = new RunTimeDecorator(codeSegment);
+        Long time = decorator.run();
+        consumer.accept(time);
+        return time;
     }
 
 }

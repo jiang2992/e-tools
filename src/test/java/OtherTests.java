@@ -1,6 +1,4 @@
 import org.jiang.tools.decorator.AsynExecDecorator;
-import org.jiang.tools.geo.EasyCoord;
-import org.jiang.tools.geo.EasyGeo;
 import org.jiang.tools.model.WrapValue;
 import org.junit.Test;
 

@@ -2,8 +2,10 @@ package org.jiang.tools.verifycode;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.jiang.tools.canvas.*;
 import org.jiang.tools.canvas.ColorUtils;
+import org.jiang.tools.canvas.EasyCanvas;
+import org.jiang.tools.canvas.EasyCanvasUtils;
+import org.jiang.tools.canvas.EasyFont;
 import org.jiang.tools.canvas.element.EasyLine;
 import org.jiang.tools.canvas.element.EasyText;
 
