@@ -12,13 +12,14 @@ import java.text.NumberFormat;
  * @author Bin
  * @since 1.1.0
  */
-public class EasyNumber {
+public class EasyNumber implements Comparable<EasyNumber> {
 
     private final static String SYMBOL_ADD = "+";
     private final static String SYMBOL_SUBTRACT = "-";
     private final static String SYMBOL_MULTIPLY = "×";
     private final static String SYMBOL_DIVIDE = "÷";
     private final static String SYMBOL_REMAINDER = "%";
+    private final static String SYMBOL_POW = "^";
 
     private BigDecimal decimal;
     private BigDecimal remainedDecimal;
@@ -82,6 +83,27 @@ public class EasyNumber {
      */
     public static EasyNumber of(BigDecimal number) {
         return new EasyNumber(number);
+    }
+
+    /**
+     * 从16进制字符串构造对象
+     *
+     * @param hexString 16进制字符串
+     * @return EasyNumber
+     */
+    public static EasyNumber ofHexString(String hexString) {
+        return EasyNumber.of(Long.parseLong(hexString, 16));
+    }
+
+    /**
+     * 从浮点型16进制字符串构造对象
+     *
+     * @param doubleHexString 浮点型16进制字符串
+     * @return EasyNumber
+     */
+    public static EasyNumber ofDoubleHexString(String doubleHexString) {
+        long longBits = Long.parseLong(doubleHexString, 16);
+        return EasyNumber.of(Double.longBitsToDouble(longBits));
     }
 
     /**
@@ -205,6 +227,38 @@ public class EasyNumber {
             throw new BadArgumentException("没有预先的除法运算");
         }
         return this.remainedDecimal.setScale(this.roundRule.getScale(), this.roundRule.getMode());
+    }
+
+    /**
+     * 返回正负号
+     *
+     * @return 正负号（-1,0,1）
+     */
+    public int signum() {
+        return this.decimal.signum();
+    }
+
+    /**
+     * 返回16进制字符串
+     * 使用该方法会丢失小数部分，请务必保证值为整数
+     * 如果需要将浮点数转为16进制字符串，请使用 toDoubleHexString
+     *
+     * @return 16进制字符串
+     */
+    public String toHexString() {
+        return Long.toHexString(this.toLong());
+    }
+
+    /**
+     * 返回16进制字符串（64位浮点型）
+     * 该方法会先将浮点值转为 LongBits 再进行进制转换
+     * 注意：该方法不能与常规的转换混用，如果需要转回十进制，请使用 ofDoubleHexString
+     *
+     * @return 16进制字符串
+     */
+    public String toDoubleHexString() {
+        long longBits = Double.doubleToLongBits(this.decimal.doubleValue());
+        return Long.toHexString(longBits);
     }
 
     /**
@@ -407,6 +461,95 @@ public class EasyNumber {
         return this.remainder(of(number));
     }
 
+
+    /**
+     * 与目标值对比，取最大值
+     * 如果相同则返回this
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber max(long number) {
+        return this.max(of(number));
+    }
+
+    /**
+     * 与目标值对比，取最大值
+     * 如果相同则返回this
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber max(double number) {
+        return this.max(of(number));
+    }
+
+    /**
+     * 与目标值对比，取最大值
+     * 如果相同则返回this
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber max(BigInteger number) {
+        return this.max(of(number));
+    }
+
+    /**
+     * 与目标值对比，取最大值
+     * 如果相同则返回this
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber max(BigDecimal number) {
+        return this.max(of(number));
+    }
+
+    /**
+     * 与目标值对比，取最小值
+     * 如果相同则返回this
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber min(long number) {
+        return this.min(of(number));
+    }
+
+    /**
+     * 与目标值对比，取最小值
+     * 如果相同则返回this
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber min(double number) {
+        return this.min(of(number));
+    }
+
+    /**
+     * 与目标值对比，取最小值
+     * 如果相同则返回this
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber min(BigInteger number) {
+        return this.min(of(number));
+    }
+
+    /**
+     * 与目标值对比，取最小值
+     * 如果相同则返回this
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber min(BigDecimal number) {
+        return this.min(of(number));
+    }
+
     /**
      * 加法运算
      *
@@ -473,6 +616,55 @@ public class EasyNumber {
         return this;
     }
 
+    /**
+     * 与目标值对比，取最大值
+     * 如果相同则返回this
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber max(EasyNumber number) {
+        switch (this.compareTo(number)) {
+            case -1:
+                return number;
+            case 0:
+            case 1:
+                return this;
+        }
+        return this;
+    }
+
+    /**
+     * 与目标值对比，取最小值
+     * 如果相同则返回this
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber min(EasyNumber number) {
+        switch (this.compareTo(number)) {
+            case -1:
+            case 0:
+                return this;
+            case 1:
+                return number;
+        }
+        return this;
+    }
+
+    /**
+     * 幂运算
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public EasyNumber pow(int number) {
+        this.addCourse(SYMBOL_POW, EasyNumber.of(number).integerRule());
+        this.decimal = this.decimal.pow(number);
+        this.remainedDecimal = null;
+        return this;
+    }
+
     private void addCourse(String symbol, EasyNumber number) {
         boolean isAddSubtract = SYMBOL_ADD.equals(symbol) || SYMBOL_SUBTRACT.equals(symbol);
         String str = number.courseString != null ? String.format("(%s)", number.courseString) : number.value().setScale(this.roundRule.getScale(), this.roundRule.getMode()).toString();
@@ -489,6 +681,46 @@ public class EasyNumber {
         }
         this.courseString.append(symbol);
         this.courseString.append(str);
+    }
+
+    @Override
+    public int compareTo(EasyNumber o) {
+        return this.decimal.compareTo(o.decimal);
+    }
+
+    /**
+     * 判断值与目标对象的值是否相等
+     * 支持的类型：int、long、float、double、String、BigInteger、BigDecimal、EasyNumber
+     *
+     * @param obj 目标对象
+     * @return 是否相等
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        double value;
+        if (obj instanceof Integer) {
+            value = (int) obj;
+        } else if (obj instanceof Long) {
+            value = (long) obj;
+        } else if (obj instanceof Float) {
+            value = (float) obj;
+        } else if (obj instanceof Double) {
+            value = (double) obj;
+        } else if (obj instanceof String) {
+            value = Double.parseDouble((String) obj);
+        } else if (obj instanceof BigInteger) {
+            value = ((BigInteger) obj).doubleValue();
+        } else if (obj instanceof BigDecimal) {
+            value = ((BigDecimal) obj).doubleValue();
+        } else if (obj instanceof EasyNumber) {
+            value = ((EasyNumber) obj).toDouble();
+        } else {
+            return false;
+        }
+        return this.toDouble() == value;
     }
 
 }

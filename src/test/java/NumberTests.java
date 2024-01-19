@@ -1,4 +1,5 @@
 import org.jiang.tools.math.EasyNumber;
+import org.jiang.tools.math.RoundRule;
 import org.junit.Test;
 
 /**
@@ -19,6 +20,31 @@ public class NumberTests {
                 .divide(9);
         System.out.println(easyNumber.toString());
         System.out.println(easyNumber.course());
+        easyNumber.pow(2);
+        System.out.println(easyNumber.course());
+    }
+
+    @Test
+    public void test2() {
+        EasyNumber easyNumber = EasyNumber.of(3);
+        System.out.println(easyNumber.max(4.0));
+        System.out.println(easyNumber.max(3.0));
+        System.out.println(easyNumber.max(2.0));
+        System.out.println(easyNumber.min(4.0));
+        System.out.println(easyNumber.min(3.0));
+        System.out.println(easyNumber.min(2));
+    }
+
+    @Test
+    public void test3() {
+        EasyNumber easyNumber = EasyNumber.of(1000);
+        String doubleHexString = easyNumber.toDoubleHexString();
+        System.out.println(doubleHexString);
+        System.out.println(EasyNumber.ofDoubleHexString(doubleHexString));
+
+        String hexString = easyNumber.toHexString();
+        System.out.println(hexString);
+        System.out.println(EasyNumber.ofHexString(hexString));
     }
 
 }
