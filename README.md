@@ -87,7 +87,19 @@ public static void main(String[] args) {
 
     // 转为Bd09坐标系
     EasyGeo.Coord c = easyGeo.toBd09().value();
+
+    // 创建多边形区域对象
+    EasyGeoArea easyGeoArea = EasyGeoArea.ofGcj02();
+    easyGeoArea.add(116.395788, 39.907194);
+    easyGeoArea.add(116.399296, 39.907336);
+    easyGeoArea.add(116.399695, 39.900314);
+    easyGeoArea.add(116.396073, 39.900205);
+
+    // 判断某个点是否处于区域内
+    boolean contains = easyGeoArea.contains(116.398112, 39.906002);
     
+    // 计算多边形面积
+    long acreage = easyGeoArea.acreage();
 }
 ```
 
