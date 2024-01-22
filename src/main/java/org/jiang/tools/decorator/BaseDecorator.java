@@ -8,7 +8,7 @@ package org.jiang.tools.decorator;
  */
 public abstract class BaseDecorator<T> {
 
-    protected CodeSegment codeSegment;
+    protected final CodeSegment codeSegment;
 
     public BaseDecorator(CodeSegment codeSegment) {
         this.codeSegment = codeSegment;
