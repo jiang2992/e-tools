@@ -20,7 +20,7 @@ public class StringUtils {
      * @return 布尔值
      */
     public static boolean isEmpty(String str) {
-        return str == null || str.length() == 0;
+        return str == null || str.isEmpty();
     }
 
     /**
@@ -83,6 +83,30 @@ public class StringUtils {
         }
         matcher.appendTail(sb);
         return sb.toString();
+    }
+
+    /**
+     * 下划线命名转驼峰命名
+     *
+     * @param str 字符串
+     * @return 转为驼峰命名的字符串
+     */
+    public static String lineToHump(String str) {
+        StringBuilder camelCaseBuilder = new StringBuilder();
+        boolean capitalizeNextChar = false;
+        for (char c : str.toCharArray()) {
+            if (c == '_') {
+                capitalizeNextChar = true;
+            } else {
+                if (capitalizeNextChar) {
+                    camelCaseBuilder.append(Character.toUpperCase(c));
+                    capitalizeNextChar = false;
+                } else {
+                    camelCaseBuilder.append(Character.toLowerCase(c));
+                }
+            }
+        }
+        return camelCaseBuilder.toString();
     }
 
 }
