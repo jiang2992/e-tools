@@ -45,7 +45,9 @@ public class SpinFairLock implements Lock {
         num = getTicketNum();
         threadLocalNum.set(num);
         // 自旋等待
-        while (num != this.currentNum.get()) ;
+        while (num != this.currentNum.get()) {
+            Thread.yield();
+        }
     }
 
     @Override

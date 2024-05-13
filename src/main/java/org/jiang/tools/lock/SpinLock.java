@@ -23,7 +23,9 @@ public class SpinLock implements Lock {
             count++;
             return;
         }
-        while (!owner.compareAndSet(null, thread)) ;
+        while (!owner.compareAndSet(null, thread)) {
+            Thread.yield();
+        }
     }
 
     @Override

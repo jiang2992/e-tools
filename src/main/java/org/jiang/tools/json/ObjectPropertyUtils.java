@@ -19,7 +19,7 @@ public class ObjectPropertyUtils {
     public static final String EXP_EQUAL = "=";
 
     /**
-     * 根据表达式提取对象属性值=
+     * 根据表达式提取对象属性值
      *
      * @param obj 数据对象，支持普通对象和Map（暂不支持集合）
      * @param exp 表达式（示例：$.user.id）
