@@ -20,6 +20,10 @@ public interface CommonConstants {
 
     String CHINESE_NO = "否";
 
+    String ENGLISH_YES = "Y";
+
+    String ENGLISH_NO = "N";
+
     String STRING_SEPARATOR = ",";
 
 }

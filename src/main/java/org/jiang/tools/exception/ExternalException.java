@@ -8,6 +8,10 @@ package org.jiang.tools.exception;
  */
 public class ExternalException extends BaseCustomException {
 
+    public ExternalException(){
+        this("an error occurred on the external service");
+    }
+
     public ExternalException(Exception e) {
         super(e);
     }
@@ -18,11 +22,6 @@ public class ExternalException extends BaseCustomException {
 
     public ExternalException(String message, Exception e) {
         super(message, e);
-    }
-
-    @Override
-    public String getInfo() {
-        return "外部异常";
     }
 
 }

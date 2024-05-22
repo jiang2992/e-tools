@@ -9,7 +9,7 @@ package org.jiang.tools.exception;
 public class BadArgumentException extends BaseCustomException {
 
     public BadArgumentException(){
-        super("参数异常");
+        this("argument is not as expected");
     }
 
     public BadArgumentException(String message) {

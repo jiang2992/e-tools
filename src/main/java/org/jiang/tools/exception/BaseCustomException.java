@@ -9,7 +9,7 @@ package org.jiang.tools.exception;
 public abstract class BaseCustomException extends RuntimeException {
 
     public BaseCustomException() {
-        super();
+        this("unknown custom exception");
     }
 
     public BaseCustomException(String message) {
@@ -22,15 +22,6 @@ public abstract class BaseCustomException extends RuntimeException {
 
     public BaseCustomException(String message, Exception e) {
         super(message, e);
-    }
-
-    /**
-     * 获取异常消息
-     *
-     * @return 消息文本
-     */
-    public String getInfo() {
-        return super.getMessage();
     }
 
 }

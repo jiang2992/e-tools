@@ -10,7 +10,7 @@ package org.jiang.tools.exception;
 public class BadRequestParamException extends BadRequestException {
 
     public BadRequestParamException() {
-        super("请求参数异常");
+        this("request parameter is error");
     }
 
     public BadRequestParamException(String message) {

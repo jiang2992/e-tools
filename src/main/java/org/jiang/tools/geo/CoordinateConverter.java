@@ -8,8 +8,16 @@ package org.jiang.tools.geo;
  */
 public class CoordinateConverter {
 
-    private static final double SEMIMAJOR_AXIS = 6378245.0; // WGS-84椭球长半轴
-    private static final double ECCENTRICITY_SQUARED = 0.00669342162296594323; // WGS-84椭球偏心率平方
+    /**
+     * WGS-84椭球长半轴
+     */
+    private static final double SEMIMAJOR_AXIS = 6378245.0;
+
+    /**
+     * WGS-84椭球偏心率平方
+     */
+    private static final double ECCENTRICITY_SQUARED = 0.00669342162296594323;
+
     private static final double BD_PI = 52.35987755983;
 
     /**

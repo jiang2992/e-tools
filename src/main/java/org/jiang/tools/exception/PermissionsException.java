@@ -9,7 +9,7 @@ package org.jiang.tools.exception;
 public class PermissionsException extends BadRequestException {
 
     public PermissionsException() {
-        super("权限不足");
+        super("no operation permission");
     }
 
     public PermissionsException(String message) {

@@ -27,9 +27,9 @@ public class DateCalculateUtils {
      * @return 相差天数
      */
     public static long getDayDiff(Date startDate, Date endDate) {
-        LocalDate startDateLD = startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDate endDateLD = endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return ChronoUnit.DAYS.between(startDateLD, endDateLD);
+        LocalDate startDateLd = startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate endDateLd = endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return ChronoUnit.DAYS.between(startDateLd, endDateLd);
     }
 
     /**
@@ -42,10 +42,10 @@ public class DateCalculateUtils {
      * @return 相差月数
      */
     public static long getMonthDiff(Date startDate, Date endDate) {
-        LocalDate startDateLD = startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDate endDateLD = endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        YearMonth startMonth = YearMonth.from(startDateLD);
-        YearMonth endMonth = YearMonth.from(endDateLD);
+        LocalDate startDateLd = startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate endDateLd = endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        YearMonth startMonth = YearMonth.from(startDateLd);
+        YearMonth endMonth = YearMonth.from(endDateLd);
         return ChronoUnit.MONTHS.between(startMonth, endMonth);
     }
 
@@ -59,10 +59,10 @@ public class DateCalculateUtils {
      * @return 相差年数
      */
     public static long getYearDiff(Date startDate, Date endDate) {
-        LocalDate startDateLD = startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDate endDateLD = endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        Year startMonth = Year.from(startDateLD);
-        Year endMonth = Year.from(endDateLD);
+        LocalDate startDateLd = startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate endDateLd = endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Year startMonth = Year.from(startDateLd);
+        Year endMonth = Year.from(endDateLd);
         return ChronoUnit.YEARS.between(startMonth, endMonth);
     }
 

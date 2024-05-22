@@ -9,7 +9,7 @@ package org.jiang.tools.exception;
 public class UnauthorizedException extends BadRequestException {
 
     public UnauthorizedException() {
-        super("用户未授权");
+        super("unauthorized user");
     }
 
     public UnauthorizedException(String e) {

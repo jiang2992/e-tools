@@ -9,7 +9,7 @@ package org.jiang.tools.exception;
 public class BadRequestException extends BaseCustomException {
 
     public BadRequestException(){
-        super("请求异常");
+        this("request parameter is error or status is not as expected");
     }
 
     public BadRequestException(String message) {

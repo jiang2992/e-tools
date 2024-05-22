@@ -8,6 +8,10 @@ package org.jiang.tools.exception;
  */
 public class SystemException extends BaseCustomException {
 
+    public SystemException(){
+        this("system unexpected exception");
+    }
+
     public SystemException(Exception e) {
         super(e);
     }
@@ -18,11 +22,6 @@ public class SystemException extends BaseCustomException {
 
     public SystemException(String message, Exception e) {
         super(message, e);
-    }
-
-    @Override
-    public String getInfo() {
-        return "系统异常";
     }
 
 }

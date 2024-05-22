@@ -13,6 +13,13 @@ import java.util.Set;
  */
 public class SetUtils {
 
+    /**
+     * 将数组转为LinkedHashSet
+     *
+     * @param array 数组
+     * @param <T>   元素类型
+     * @return Set集合
+     */
     public static <T> Set<T> asArray(T[] array) {
         if (array == null) {
             return new LinkedHashSet<>(0);
@@ -20,6 +27,13 @@ public class SetUtils {
         return new LinkedHashSet<>(Arrays.asList(array));
     }
 
+    /**
+     * 将List转为LinkedHashSet
+     *
+     * @param list List对象
+     * @param <T>  元素类型
+     * @return Set集合
+     */
     public static <T> Set<T> asList(List<T> list) {
         if (list == null || list.isEmpty()) {
             return new LinkedHashSet<>(0);
@@ -27,6 +41,13 @@ public class SetUtils {
         return new LinkedHashSet<>(list);
     }
 
+    /**
+     * 切割字符串并返回Set
+     *
+     * @param str   字符串
+     * @param regex 切割符
+     * @return 切割后的Set集合
+     */
     public static Set<String> asString(String str, String regex) {
         if (str == null || regex == null) {
             return new LinkedHashSet<>(0);
