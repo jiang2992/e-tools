@@ -1,4 +1,3 @@
-import org.jiang.tools.test.Assert;
 import org.jiang.tools.text.StringUtils;
 import org.jiang.tools.text.StringVerifyUtils;
 import org.junit.Test;

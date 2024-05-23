@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  * @author Bin
  * @since 1.0.0
  */
-public class ListUtils {
+public class ListUtils extends CollectionUtils {
 
     /**
      * Set转ArrayList

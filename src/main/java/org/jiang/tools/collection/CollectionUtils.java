@@ -1,7 +1,6 @@
 package org.jiang.tools.collection;
 
 import java.util.Collection;
-import java.util.Collections;
 
 /**
  * 集合工具类

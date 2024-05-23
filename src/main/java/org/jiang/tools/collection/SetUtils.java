@@ -11,7 +11,7 @@ import java.util.Set;
  * @author Bin
  * @since 1.0.0
  */
-public class SetUtils {
+public class SetUtils extends CollectionUtils {
 
     /**
      * 将数组转为LinkedHashSet
