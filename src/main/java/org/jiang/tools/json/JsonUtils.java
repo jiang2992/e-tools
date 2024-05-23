@@ -18,15 +18,15 @@ import java.util.List;
  */
 public class JsonUtils {
 
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     static {
-        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        OBJECT_MAPPER.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
     }
 
     public static String toJson(Object obj) {
         try {
-            return objectMapper.writeValueAsString(obj);
+            return OBJECT_MAPPER.writeValueAsString(obj);
         } catch (Exception e) {
             throw new SystemException(e);
         }
@@ -34,7 +34,7 @@ public class JsonUtils {
 
     public static <T> T toBean(String json, Class<T> cls) {
         try {
-            return objectMapper.readValue(json, cls);
+            return OBJECT_MAPPER.readValue(json, cls);
         } catch (Exception e) {
             throw new SystemException(e);
         }
@@ -57,7 +57,7 @@ public class JsonUtils {
 
     public static JsonNode readTree(byte[] bytes) {
         try {
-            return objectMapper.readTree(bytes);
+            return OBJECT_MAPPER.readTree(bytes);
         } catch (IOException e) {
             throw new SystemException(e);
         }

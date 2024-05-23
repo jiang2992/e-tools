@@ -25,6 +25,7 @@ public class WrapValue<T> implements Serializable {
         return new WrapValue<>(t);
     }
 
+    @Override
     public String toString() {
         return String.valueOf(value);
     }

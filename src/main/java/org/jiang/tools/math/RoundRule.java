@@ -24,7 +24,7 @@ public class RoundRule {
         return new RoundRule(scale, BigDecimal.ROUND_DOWN);
     }
 
-    public static RoundRule halfUP(int scale) {
+    public static RoundRule halfUp(int scale) {
         return new RoundRule(scale, BigDecimal.ROUND_HALF_UP);
     }
 

@@ -1,3 +1,4 @@
+import org.jiang.tools.test.Assert;
 import org.jiang.tools.text.StringUtils;
 import org.jiang.tools.text.StringVerifyUtils;
 import org.junit.Test;
@@ -10,6 +11,11 @@ import org.junit.Test;
  */
 public class StringTests {
 
+
+    @Test
+    public void asserts() {
+    }
+
     @Test
     public void humpToLine() {
         String str = StringUtils.humpToLine("sysUserRole");
@@ -19,7 +25,7 @@ public class StringTests {
     }
 
     @Test
-    public void verify(){
+    public void verify() {
         // 手机号
         assert StringVerifyUtils.isPhone("13660044444");
         assert !StringVerifyUtils.isPhone("1366666666");

@@ -12,7 +12,10 @@ import java.util.List;
  */
 public class LocationUtils {
 
-    private static final double SEMIMAJOR_AXIS = 6378245.0; // WGS-84椭球长半轴
+    /**
+     * WGS-84椭球长半轴
+     */
+    private static final double SEMIMAJOR_AXIS = 6378245.0;
 
     private static final double METERS_DEGREE = 2.0 * Math.PI * SEMIMAJOR_AXIS / 360.0;
 

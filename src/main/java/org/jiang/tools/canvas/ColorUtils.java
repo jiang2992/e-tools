@@ -21,7 +21,7 @@ public class ColorUtils {
     }
 
     public static int getRandomInt() {
-        int[] rgb = getRandomRGB();
+        int[] rgb = getRandomRgb();
         int color = 0;
         for (int c : rgb) {
             color = color << 8;
@@ -30,7 +30,7 @@ public class ColorUtils {
         return color;
     }
 
-    public static int[] getRandomRGB() {
+    public static int[] getRandomRgb() {
         int[] rgb = new int[3];
         for (int i = 0; i < 3; i++) {
             rgb[i] = RANDOM.nextInt(255);

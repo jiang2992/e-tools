@@ -19,8 +19,8 @@ public class StringUtils {
      * @param str 字符串
      * @return 布尔值
      */
-    public static boolean isEmpty(String str) {
-        return str == null || str.isEmpty();
+    public static boolean isEmpty(CharSequence str) {
+        return str == null || str.length() == 0;
     }
 
     /**
@@ -29,7 +29,7 @@ public class StringUtils {
      * @param str 字符串
      * @return 布尔值
      */
-    public static boolean notEmpty(String str) {
+    public static boolean notEmpty(CharSequence str) {
         return !isEmpty(str);
     }
 
