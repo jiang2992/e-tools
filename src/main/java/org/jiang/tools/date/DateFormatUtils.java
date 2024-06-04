@@ -42,8 +42,7 @@ public class DateFormatUtils {
      * @return 日期对象
      */
     public static Date toDate(String dateStr) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DEFAULT_FORMAT_PATTERN);
-        return parse(dateFormat, dateStr);
+        return toDate(dateStr, DEFAULT_FORMAT_PATTERN);
     }
 
     /**
@@ -66,8 +65,7 @@ public class DateFormatUtils {
      * @return 日期字符串
      */
     public static String toString(Date date) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DEFAULT_FORMAT_PATTERN);
-        return dateFormat.format(date);
+        return toString(date, DEFAULT_FORMAT_PATTERN);
     }
 
     /**

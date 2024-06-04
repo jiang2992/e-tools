@@ -45,6 +45,11 @@ public class EasyDate {
         return of(date);
     }
 
+    public static EasyDate of(String dateStr, String pattern) {
+        Date date = DateFormatUtils.toDate(dateStr, pattern);
+        return of(date);
+    }
+
     private Calendar execute() {
         Calendar calendar = this.calendar;
         while (!process.isEmpty()) {
