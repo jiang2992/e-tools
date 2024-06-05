@@ -52,9 +52,9 @@ public class CoordinateConverter {
     public static double[] gcj02ToBd09(double lon, double lat) {
         double z = Math.sqrt(lon * lon + lat * lat) + 0.00002 * Math.sin(lat * BD_PI);
         double theta = Math.atan2(lat, lon) + 0.000003 * Math.cos(lon * BD_PI);
-        double bd_lon = z * Math.cos(theta) + 0.0065;
-        double bd_lat = z * Math.sin(theta) + 0.006;
-        return new double[]{bd_lon, bd_lat};
+        double bdLon = z * Math.cos(theta) + 0.0065;
+        double bdLat = z * Math.sin(theta) + 0.006;
+        return new double[]{bdLon, bdLat};
     }
 
     /**
@@ -69,9 +69,9 @@ public class CoordinateConverter {
         double y = lat - 0.006;
         double z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * BD_PI);
         double theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * BD_PI);
-        double gc_lon = z * Math.cos(theta);
-        double gc_lat = z * Math.sin(theta);
-        return new double[]{gc_lon, gc_lat};
+        double gcLon = z * Math.cos(theta);
+        double gcLat = z * Math.sin(theta);
+        return new double[]{gcLon, gcLat};
     }
 
     /**

@@ -2,6 +2,9 @@ import org.jiang.tools.compress.GzipUtils;
 import org.jiang.tools.data.EasyData;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -42,6 +45,26 @@ public class CompressTests {
         System.out.println("decompressed data size:" + sourceData.value().length);
 
         System.out.println(sourceData.stringValue());
+    }
+
+    @Test
+    public void bigFileGzipTest() throws IOException {
+        File sourceFile = new File("/Users/bin/WorkSpace/test.data");
+        File targetFile = new File("/Users/bin/WorkSpace/test.data.gzip");
+        if (targetFile.exists()) {
+            targetFile.delete();
+        }
+        targetFile.createNewFile();
+        System.out.println("source file size: " + sourceFile.length() / (1024 * 1024) + "mb");
+        long start = System.currentTimeMillis();
+        try (FileInputStream inputStream = new FileInputStream(sourceFile);
+             FileOutputStream outputStream = new FileOutputStream(targetFile)) {
+            GzipUtils.compress(inputStream, outputStream);
+            outputStream.flush();
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("compress time: " + (end - start) + "ms");
+        System.out.println("target file size: " + targetFile.length() / (1024 * 1024) + "mb");
     }
 
 }

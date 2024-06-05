@@ -1,5 +1,6 @@
 package org.jiang.tools.json;
 
+import org.jiang.tools.object.EasyResolver;
 import org.jiang.tools.text.StringUtils;
 
 import java.util.HashMap;
@@ -47,13 +48,14 @@ public class JsonTemplateParser {
     }
 
     public String parsingToString(String template, Object obj) {
+        EasyResolver easyResolver = EasyResolver.of(obj);
         Matcher matcher = Pattern.compile(this.expPlaceholder).matcher(template);
         Map<String, String> matched = new HashMap<>(4);
         while (matcher.find()) {
             String exp = matcher.group();
             String fullExp = this.expStart + exp + this.expEnd;
             if (!matched.containsKey(fullExp)) {
-                Object value = ObjectPropertyUtils.extract(obj, exp);
+                Object value = easyResolver.get(exp);
                 String strValue = this.objectToString(value);
                 matched.put(fullExp, strValue);
             }

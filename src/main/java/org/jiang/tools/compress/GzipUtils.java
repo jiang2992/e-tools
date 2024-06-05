@@ -4,9 +4,7 @@ package org.jiang.tools.compress;
 import org.jiang.tools.data.EasyData;
 import org.jiang.tools.text.StringUtils;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -17,6 +15,8 @@ import java.util.zip.GZIPOutputStream;
  * @since 1.1.3
  */
 public class GzipUtils {
+
+    private static final int BUFFER_SIZE = 8192;
 
     /**
      * 压缩字节数组
@@ -62,6 +62,28 @@ public class GzipUtils {
             return null;
         }
         return compress(data.value());
+    }
+
+    /**
+     * 从输入流读取并压缩数据，然后写到输出流中
+     *
+     * @param inputStream  输入流
+     * @param outputStream 输出流
+     * @throws IOException 压缩过程中的异常
+     */
+    public static void compress(InputStream inputStream, OutputStream outputStream) throws IOException {
+        try (
+                BufferedInputStream bis = new BufferedInputStream(inputStream, BUFFER_SIZE);
+                BufferedOutputStream bos = new BufferedOutputStream(outputStream, BUFFER_SIZE);
+                GZIPOutputStream gzipOs = new GZIPOutputStream(bos)
+        ) {
+            byte[] buffer = new byte[BUFFER_SIZE];
+            int len;
+            while ((len = bis.read(buffer)) != -1) {
+                gzipOs.write(buffer, 0, len);
+            }
+            gzipOs.finish();
+        }
     }
 
     /**
@@ -113,6 +135,27 @@ public class GzipUtils {
             return null;
         }
         return decompress(data.value());
+    }
+
+    /**
+     * 从输入流读取并解压缩数据，然后写到输出流中
+     *
+     * @param inputStream  输入流
+     * @param outputStream 输出流
+     * @throws IOException 解压缩过程中的异常
+     */
+    public static void decompress(InputStream inputStream, OutputStream outputStream) throws IOException {
+        try (
+                BufferedInputStream bis = new BufferedInputStream(inputStream, BUFFER_SIZE);
+                GZIPInputStream gzipOs = new GZIPInputStream(bis);
+                BufferedOutputStream bos = new BufferedOutputStream(outputStream, BUFFER_SIZE)
+        ) {
+            byte[] buffer = new byte[BUFFER_SIZE];
+            int len;
+            while ((len = gzipOs.read(buffer)) != -1) {
+                bos.write(buffer, 0, len);
+            }
+        }
     }
 
 }
