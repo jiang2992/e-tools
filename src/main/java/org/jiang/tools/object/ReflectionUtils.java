@@ -4,6 +4,12 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 反射工具类
+ *
+ * @author Bin
+ * @since 1.1.3
+ */
 public class ReflectionUtils {
 
     /**
