@@ -1,3 +1,4 @@
+import org.jiang.tools.text.RandomUtils;
 import org.jiang.tools.text.StringUtils;
 import org.jiang.tools.text.StringVerifyUtils;
 import org.junit.Test;
@@ -12,7 +13,12 @@ public class StringTests {
 
 
     @Test
-    public void asserts() {
+    public void random() {
+        System.out.println("generate: " + RandomUtils.generate(6));
+        System.out.println("generate letter: " + RandomUtils.generateLetter(6));
+        System.out.println("generate number: " + RandomUtils.generateNumber(6));
+        System.out.println("generate upper latter: " + RandomUtils.generateUpperLetter(6));
+        System.out.println("generate lower latter: " + RandomUtils.generateLowerLetter(6));
     }
 
     @Test

@@ -1,99 +1,31 @@
 package org.jiang.tools.json;
 
-import org.jiang.tools.object.EasyResolver;
 import org.jiang.tools.text.StringUtils;
+import org.jiang.tools.text.TemplateParser;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Json模板解析器
- * 示例：
- * template: {id:1001,name:"${name}"}
- * data: {name:"lisi"}
- * ↓↓↓
- * result: {id:1001,name:"lisi"}
  *
  * @author Bin
- * @since 1.0.0
+ * @since 1.1.3
  */
-public class JsonTemplateParser {
+public class JsonTemplateParser extends TemplateParser {
 
-    private static final String REGEX_ESCAPE_CHARS = "$()*+.[]?\\^{}|";
-    public static final String EXP_START_DEFAULT = "${";
-    public static final String EXP_END_DEFAULT = "}";
-
-    private final String expStart;
-    private final String expEnd;
-    private final String expPlaceholder;
-
-    public JsonTemplateParser() {
-        this(EXP_START_DEFAULT, EXP_END_DEFAULT);
-    }
-
-    public JsonTemplateParser(String expStart, String expEnd) {
-        this.expStart = expStart;
-        this.expEnd = expEnd;
-        this.expPlaceholder = "(?<=" + this.regexEscape(expStart) + ").*?(?=" + this.regexEscape(expEnd) + ")";
-    }
-
-    public Map<String, Object> parsingToMap(String template, Object obj) {
-        String str = this.parsingToString(template, obj);
+    /**
+     * 格式化并输出Map对象
+     *
+     * @param template 模板
+     * @param obj      数据对象
+     * @return Map对象
+     */
+    public Map<?, ?> formatToMap(String template, Object obj) {
+        String str = this.format(template, obj);
         if (StringUtils.isEmpty(str)) {
             return null;
         }
         return JsonUtils.toBean(str, Map.class);
-    }
-
-    public String parsingToString(String template, Object obj) {
-        EasyResolver easyResolver = EasyResolver.of(obj);
-        Matcher matcher = Pattern.compile(this.expPlaceholder).matcher(template);
-        Map<String, String> matched = new HashMap<>(4);
-        while (matcher.find()) {
-            String exp = matcher.group();
-            String fullExp = this.expStart + exp + this.expEnd;
-            if (!matched.containsKey(fullExp)) {
-                Object value = easyResolver.get(exp);
-                String strValue = this.objectToString(value);
-                matched.put(fullExp, strValue);
-            }
-        }
-        for (String key : matched.keySet()) {
-            String value = matched.get(key);
-            template = template.replace(key, value);
-        }
-        return template;
-    }
-
-    private String objectToString(Object obj) {
-        if (obj == null) {
-            return "null";
-        }
-        Class<?> cls = obj.getClass();
-        if (cls.isPrimitive()) {
-            return obj.toString();
-        }
-        if (cls.isAssignableFrom(Number.class)) {
-            return obj.toString();
-        }
-        if (obj instanceof CharSequence) {
-            return obj.toString();
-        }
-        return JsonUtils.toJson(obj);
-    }
-
-    private String regexEscape(String str) {
-        StringBuilder result = new StringBuilder();
-        char[] cs = str.toCharArray();
-        for (char c : cs) {
-            if (REGEX_ESCAPE_CHARS.indexOf(c) != -1) {
-                result.append("\\");
-                result.append(c);
-            }
-        }
-        return result.toString();
     }
 
 }
