@@ -235,6 +235,7 @@ public class EasyDate {
     /**
      * 添加秒数
      *
+     * @param offset 秒数，为负数时减少
      * @return EasyDate
      */
     public EasyDate addSec(int offset) {
@@ -245,6 +246,7 @@ public class EasyDate {
     /**
      * 添加分钟数
      *
+     * @param offset 分钟数，为负数时减少
      * @return EasyDate
      */
     public EasyDate addMin(int offset) {
@@ -255,6 +257,7 @@ public class EasyDate {
     /**
      * 添加小时数
      *
+     * @param offset 小时数，为负数时减少
      * @return EasyDate
      */
     public EasyDate addHour(int offset) {
@@ -265,6 +268,7 @@ public class EasyDate {
     /**
      * 添加日期天数
      *
+     * @param offset 天数，为负数时减少
      * @return EasyDate
      */
     public EasyDate addDays(int offset) {
@@ -275,6 +279,7 @@ public class EasyDate {
     /**
      * 添加日期周数
      *
+     * @param offset 周数，为负数时减少
      * @return EasyDate
      */
     public EasyDate addWeek(int offset) {
@@ -285,6 +290,7 @@ public class EasyDate {
     /**
      * 添加日期月数
      *
+     * @param offset 月数，为负数时减少
      * @return EasyDate
      */
     public EasyDate addMonth(int offset) {
@@ -295,6 +301,7 @@ public class EasyDate {
     /**
      * 添加日期年数
      *
+     * @param offset 年数，为负数时减少
      * @return EasyDate
      */
     public EasyDate addYear(int offset) {
