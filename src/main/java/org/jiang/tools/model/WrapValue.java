@@ -11,11 +11,9 @@ import java.io.Serializable;
  * @author Bin
  * @since 1.0.0
  */
-@Setter
-@Getter
 public class WrapValue<T> implements Serializable {
 
-    private T value;
+    private volatile T value;
 
     private WrapValue(T value) {
         this.value = value;
@@ -23,6 +21,22 @@ public class WrapValue<T> implements Serializable {
 
     public static <T> WrapValue<T> of(T t) {
         return new WrapValue<>(t);
+    }
+
+    public T get(){
+        return value;
+    }
+
+    public T getOrDefault(T defaultValue){
+        T result = get();
+        if(result == null) {
+            result = defaultValue;
+        }
+        return result;
+    }
+
+    public void set(T value){
+        this.value = value;
     }
 
     @Override

@@ -76,6 +76,9 @@ public class DateFormatUtils {
      * @return 日期字符串
      */
     public static String toString(Date date, String pattern) {
+        if (date == null) {
+            return null;
+        }
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
         return dateFormat.format(date);
     }

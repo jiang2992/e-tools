@@ -1,7 +1,11 @@
+import org.jiang.tools.json.JsonUtils;
 import org.jiang.tools.text.RandomUtils;
 import org.jiang.tools.text.StringUtils;
 import org.jiang.tools.text.StringVerifyUtils;
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 字符串相关测试类
@@ -10,6 +14,16 @@ import org.junit.Test;
  * @since 1.1.0
  */
 public class StringTests {
+
+    @Test
+    public void test(){
+        String json = "{\"IM_REQ_DATA\":{\"AbnSiteInformations\":[{\"comba_province\":\"江苏\",\"comba_city\":\"盐城\",\"comba_projecttypesecond\":\"传统室分\",\"comba_operator\":\"移动\",\"comba_physicalsitename\":\"盐城-大丰-沪苏产业园泓顺硅基一期7号厂区\t\n" +
+                "盐城-大丰-沪苏产业园泓顺硅基一期7号厂区\"}]}}";
+        System.out.println(json);
+        json  = json.replaceAll("\n", "\\n");
+        json  = json.replaceAll("\t", "\\t");
+        System.out.println(JsonUtils.toBean(json, Map.class));
+    }
 
 
     @Test

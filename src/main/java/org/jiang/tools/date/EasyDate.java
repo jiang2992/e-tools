@@ -26,6 +26,9 @@ public class EasyDate {
     }
 
     private Calendar createCalendar(Date date) {
+        if (date == null) {
+            return null;
+        }
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.setFirstDayOfWeek(Calendar.MONDAY);
@@ -50,7 +53,14 @@ public class EasyDate {
         return of(date);
     }
 
+    public boolean isEmpty() {
+        return this.calendar == null;
+    }
+
     private Calendar execute() {
+        if (this.isEmpty()) {
+            return null;
+        }
         Calendar calendar = this.calendar;
         while (!process.isEmpty()) {
             calendar = process.poll().apply(calendar);
@@ -74,7 +84,11 @@ public class EasyDate {
      * @return 日期对象
      */
     public Date value() {
-        return new Date(this.execute().getTime().getTime());
+        Calendar calendar = this.execute();
+        if (calendar == null) {
+            return null;
+        }
+        return new Date(calendar.getTime().getTime());
     }
 
     /**
@@ -83,7 +97,11 @@ public class EasyDate {
      * @return 日期对象
      */
     public LocalDateTime localValue() {
-        return LocalDateTime.ofInstant(this.execute().toInstant(), ZoneId.systemDefault());
+        Calendar calendar = this.execute();
+        if (calendar == null) {
+            return null;
+        }
+        return LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault());
     }
 
     /**

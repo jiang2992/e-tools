@@ -20,7 +20,7 @@ public class JsonTemplateParser extends TemplateParser {
      * @param obj      数据对象
      * @return Map对象
      */
-    public Map<?, ?> formatToMap(String template, Object obj) {
+    public Map<String, Object> formatToMap(String template, Object obj) {
         String str = this.format(template, obj);
         if (StringUtils.isEmpty(str)) {
             return null;

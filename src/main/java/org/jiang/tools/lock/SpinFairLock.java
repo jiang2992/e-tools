@@ -31,7 +31,7 @@ public class SpinFairLock implements Lock {
     /**
      * 各线程存放自己所申请的排队号码
      */
-    private static final ThreadLocal<Integer> threadLocalNum = new ThreadLocal<>();
+    private final ThreadLocal<Integer> threadLocalNum = new ThreadLocal<>();
 
     @Override
     public void lock() {

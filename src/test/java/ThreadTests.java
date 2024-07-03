@@ -34,7 +34,7 @@ public class ThreadTests {
             WrapValue<Integer> index = WrapValue.of(i);
             ts[i] = AsynExecDecorator.run(() -> {
                 for (int j = 0; j < 100; j++) {
-                    this.execute(index.getValue());
+                    this.execute(index.get());
                 }
             });
         }
