@@ -1,7 +1,6 @@
 package org.jiang.tools.collection;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 
 /**
  * Map工具类

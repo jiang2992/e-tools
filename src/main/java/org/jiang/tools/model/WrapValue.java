@@ -1,8 +1,5 @@
 package org.jiang.tools.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.io.Serializable;
 
 /**
