@@ -34,6 +34,17 @@ public class StringUtils {
     }
 
     /**
+     * 判断字符串是否是数字
+     *
+     * @param str 字符串
+     * @return 布尔值
+     */
+    public static boolean isNumber(CharSequence str) {
+        // TODO
+        return false;
+    }
+
+    /**
      * 字符串左边填充
      *
      * @param str    操作字符串

@@ -1,3 +1,4 @@
+import lombok.SneakyThrows;
 import org.jiang.tools.decorator.RunTimeDecorator;
 import org.junit.Test;
 
@@ -12,8 +13,12 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class OtherTests {
 
+    /**
+     * map的initialCapacity对性能的影响
+     */
     @Test
-    public void test() throws InterruptedException {
+    @SneakyThrows
+    public void initialCapacity() {
         Thread.sleep(1000);
         int size = 60;
 
@@ -49,8 +54,11 @@ public class OtherTests {
         }, time -> System.out.println("计算大小:" + time));
     }
 
+    /**
+     * 随机数
+     */
     @Test
-    public void test2() throws InterruptedException {
+    public void test2() {
         for (int i = 0; i < 1000; i++) {
             int n = ThreadLocalRandom.current().nextInt(1200);
             System.out.println(n);

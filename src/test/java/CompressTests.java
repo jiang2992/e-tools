@@ -1,3 +1,4 @@
+import lombok.SneakyThrows;
 import org.jiang.tools.compress.GzipUtils;
 import org.jiang.tools.data.EasyData;
 import org.junit.Test;
@@ -15,8 +16,12 @@ import java.io.IOException;
  */
 public class CompressTests {
 
+    /**
+     * gzip压缩
+     */
     @Test
-    public void gzipTest() throws IOException {
+    @SneakyThrows
+    public void gzipTest() {
         EasyData sourceData = EasyData.of("午后的阳光懒洋洋地洒在小镇的街道上，空气中弥漫着淡淡的花香和烤面包的香气。街角的咖啡馆里，老约翰正一边修理着他的老式自行车，一边哼着不知名的曲调。他那双浑浊的双眼，却仿佛洞悉着世间的一切。\n" +
                 "隔壁桌的年轻女孩，正沉浸在书本的世界里，她的脸上写满了专注和沉思。偶尔，她会抬起头，望向窗外，嘴角泛起一抹微笑，似乎在回忆着什么美好的过往。\n" +
                 "咖啡馆的老板娘，一个身材丰满，性格爽朗的女人，正忙着招呼着客人，她的脸上始终洋溢着热情和真诚。她会记得每一个客人的喜好，也会用她独特的幽默感，将客人逗得哈哈大笑。\n" +
@@ -47,8 +52,12 @@ public class CompressTests {
         System.out.println(sourceData.stringValue());
     }
 
+    /**
+     * 大文件gzip压缩
+     */
     @Test
-    public void bigFileGzipTest() throws IOException {
+    @SneakyThrows
+    public void bigFileGzipTest() {
         File sourceFile = new File("/Users/bin/WorkSpace/test.data");
         File targetFile = new File("/Users/bin/WorkSpace/test.data.gzip");
         if (targetFile.exists()) {

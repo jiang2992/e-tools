@@ -13,6 +13,9 @@ import java.util.List;
  */
 public class ObjectTests {
 
+    /**
+     * 简单解析
+     */
     @Test
     public void resolverTest() {
         System.out.println(EasyResolver.verifyExp("$.abc.ccc"));

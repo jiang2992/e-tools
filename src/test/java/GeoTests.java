@@ -13,6 +13,9 @@ import org.junit.Test;
  */
 public class GeoTests {
 
+    /**
+     * 位置计算和转换
+     */
     @Test
     public void geoTest() {
         // 从Gcj02坐标系位置构造对象
@@ -32,7 +35,9 @@ public class GeoTests {
         System.out.println(distance);
     }
 
-    @SneakyThrows
+    /**
+     * 区域计算
+     */
     @Test
     public void areaTest() {
         EasyGeoArea easyGeoArea = EasyGeoArea.ofGcj02();

@@ -86,7 +86,7 @@ public class DateTests {
     }
 
     @Test
-    public void test() {
+    public void example() {
         // 获取今天开始时间
         EasyDate.now().startTime().value();
 

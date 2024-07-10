@@ -72,7 +72,7 @@ public class EasyNumber implements Comparable<EasyNumber> {
      * @return EasyNumber
      */
     public static EasyNumber of(BigInteger number) {
-        return of(new BigDecimal(number));
+        return of(number.toString());
     }
 
     /**
@@ -83,6 +83,16 @@ public class EasyNumber implements Comparable<EasyNumber> {
      */
     public static EasyNumber of(BigDecimal number) {
         return new EasyNumber(number);
+    }
+
+    /**
+     * 从EasyNumber类型的数值构造对象(等同于复制)
+     *
+     * @param number 数值
+     * @return EasyNumber
+     */
+    public static EasyNumber of(EasyNumber number) {
+        return of(number.toString());
     }
 
     /**

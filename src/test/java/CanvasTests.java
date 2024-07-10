@@ -1,3 +1,4 @@
+import lombok.SneakyThrows;
 import org.jiang.tools.canvas.EasyCanvas;
 import org.jiang.tools.canvas.EasyCanvasUtils;
 import org.jiang.tools.canvas.EasyFont;
@@ -19,8 +20,12 @@ import java.io.IOException;
  */
 public class CanvasTests {
 
+    /**
+     * 简单画图
+     */
     @Test
-    public void test() throws IOException {
+    @SneakyThrows
+    public void test() {
         EasyFont easyFont = new EasyFont(28);
 
         EasyCanvas easyCanvas = new EasyCanvas(1000, 1000);

@@ -1,4 +1,5 @@
 import org.jiang.tools.math.EasyNumber;
+import org.jiang.tools.math.EasyRatio;
 import org.junit.Test;
 
 /**
@@ -9,6 +10,9 @@ import org.junit.Test;
  */
 public class NumberTests {
 
+    /**
+     * 简单计算
+     */
     @Test
     public void test() {
         EasyNumber easyNumber = EasyNumber.zero()
@@ -23,8 +27,11 @@ public class NumberTests {
         System.out.println(easyNumber.course());
     }
 
+    /**
+     * 值对比
+     */
     @Test
-    public void test2() {
+    public void compare() {
         EasyNumber easyNumber = EasyNumber.of(3);
         System.out.println(easyNumber.max(4.0));
         System.out.println(easyNumber.max(3.0));
@@ -34,8 +41,11 @@ public class NumberTests {
         System.out.println(easyNumber.min(2));
     }
 
+    /**
+     * 16进制转换
+     */
     @Test
-    public void test3() {
+    public void hexString() {
         EasyNumber easyNumber = EasyNumber.of(1000);
         String doubleHexString = easyNumber.toDoubleHexString();
         System.out.println(doubleHexString);
@@ -44,6 +54,20 @@ public class NumberTests {
         String hexString = easyNumber.toHexString();
         System.out.println(hexString);
         System.out.println(EasyNumber.ofHexString(hexString));
+    }
+
+    /**
+     * 占比
+     */
+    @Test
+    public void ratio() {
+        EasyRatio easyRatio = EasyRatio.of(61).setScale(1);
+        easyRatio.addTotal(24);
+        System.out.println(easyRatio.take(3));
+        System.out.println(easyRatio.take(35));
+        System.out.println(easyRatio.take(24));
+        System.out.println(easyRatio.take(23));
+        System.out.println(easyRatio.remainedRatio());
     }
 
 }

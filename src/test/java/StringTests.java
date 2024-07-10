@@ -14,8 +14,11 @@ import java.util.Map;
  */
 public class StringTests {
 
+    /**
+     * json转换
+     */
     @Test
-    public void test(){
+    public void json(){
         String json = "{\"IM_REQ_DATA\":{\"AbnSiteInformations\":[{\"comba_province\":\"江苏\",\"comba_city\":\"盐城\",\"comba_projecttypesecond\":\"传统室分\",\"comba_operator\":\"移动\",\"comba_physicalsitename\":\"盐城-大丰-沪苏产业园泓顺硅基一期7号厂区\t\n" +
                 "盐城-大丰-沪苏产业园泓顺硅基一期7号厂区\"}]}}";
         System.out.println(json);
@@ -24,7 +27,9 @@ public class StringTests {
         System.out.println(JsonUtils.toBean(json, Map.class));
     }
 
-
+    /**
+     * 随机数生成
+     */
     @Test
     public void random() {
         System.out.println("generate: " + RandomUtils.generate(6));
@@ -34,6 +39,9 @@ public class StringTests {
         System.out.println("generate lower latter: " + RandomUtils.generateLowerLetter(6));
     }
 
+    /**
+     * 驼峰转换
+     */
     @Test
     public void humpToLine() {
         String str = StringUtils.humpToLine("sysUserRole");
@@ -42,6 +50,9 @@ public class StringTests {
         System.out.println(str);
     }
 
+    /**
+     * 格式验证
+     */
     @Test
     public void verify() {
         // 手机号
