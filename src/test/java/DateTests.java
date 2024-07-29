@@ -140,7 +140,11 @@ public class DateTests {
 
         // 格式化时间
         EasyDate.of(new Date()).stringValue("yyyy-MM-dd");
+    }
 
+    @Test
+    public void test(){
+        System.out.println(EasyDate.of("2024-07-16 17:00:00").startTime().value().getTime());
     }
 
 }

@@ -65,4 +65,14 @@ public class OtherTests {
         }
     }
 
+    /**
+     * 字符串拼接
+     */
+    @Test
+    public void test3() {
+        String str1 = "hello";
+        String str2 = "he" + "llo";
+        System.out.println(str1 == str2);
+    }
+
 }

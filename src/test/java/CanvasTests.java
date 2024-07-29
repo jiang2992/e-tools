@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Canvas相关测试类
