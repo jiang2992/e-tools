@@ -19,11 +19,16 @@ public class StringTests {
      */
     @Test
     public void json(){
-        String json = "{\"IM_REQ_DATA\":{\"AbnSiteInformations\":[{\"comba_province\":\"江苏\",\"comba_city\":\"盐城\",\"comba_projecttypesecond\":\"传统室分\",\"comba_operator\":\"移动\",\"comba_physicalsitename\":\"盐城-大丰-沪苏产业园泓顺硅基一期7号厂区\t\n" +
-                "盐城-大丰-沪苏产业园泓顺硅基一期7号厂区\"}]}}";
+        String json = "{\n"
+                + "\"IM_BASEINFO\":{\"I_MSGID\":\"str1234\",\"I_CODE\":\"S0339\",\"I_SNDTIME\":\"20191224141700000000\",\"I_LANGUAGE\":\"1\",\"I_SOUSYS\":\"ABN\",\"I_USRNAME\":\"OA_TEST\",\"I_KEY1\":\"str1234\",\"I_KEY2\":\"str1234\",\"I_KEY3\":\"str1234\"},\n"
+                + "\"IM_REQ_DATA\":\n"
+                + "{\"AbnSiteInformations\":\n"
+                + "[{\"comba_province\":\"山东\",\"comba_city\":\"青岛\",\"comba_projecttypesecond\":\"传统室分\",\"comba_operator\":\"移动\",\"comba_physicalsitename\":\"E092312055\tT009\t青岛移动-崂山区青岛大学新建实验楼\",\"comba_siteaddress\":\"山东省青岛市崂山区香港东路12-1号\",\"comba_longitude\":\"120.42188247591302\",\"comba_latitude\":\"36.06\"}]\n"
+                + "}\n"
+                + "}";
         System.out.println(json);
-        json  = json.replaceAll("\n", "\\n");
-        json  = json.replaceAll("\t", "\\t");
+        json  = json.replaceAll("\n", "");
+        json  = json.replaceAll("\t", "");
         System.out.println(JsonUtils.toBean(json, Map.class));
     }
 

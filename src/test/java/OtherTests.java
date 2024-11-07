@@ -1,9 +1,10 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 import lombok.SneakyThrows;
 import org.jiang.tools.decorator.RunTimeDecorator;
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 其他测试类
@@ -25,8 +26,8 @@ public class OtherTests {
         RunTimeDecorator.run(() -> {
             for (int i = 0; i < 1000000; i++) {
                 HashMap<Object, Object> map = new HashMap<>();
-                for(int j = 0;j < size;j++){
-                    map.put(j,"test");
+                for (int j = 0; j < size; j++) {
+                    map.put(j, "test");
                 }
                 map.get(size / 2);
             }
@@ -35,8 +36,8 @@ public class OtherTests {
         RunTimeDecorator.run(() -> {
             for (int i = 0; i < 1000000; i++) {
                 HashMap<Object, Object> map = new HashMap<>(size);
-                for(int j = 0;j < size;j++){
-                    map.put(j,"test");
+                for (int j = 0; j < size; j++) {
+                    map.put(j, "test");
                 }
                 map.get(size / 2);
             }
@@ -46,8 +47,8 @@ public class OtherTests {
         RunTimeDecorator.run(() -> {
             for (int i = 0; i < 1000000; i++) {
                 HashMap<Object, Object> map = new HashMap<>(initialCapacity);
-                for(int j = 0;j < size;j++){
-                    map.put(j,"test");
+                for (int j = 0; j < size; j++) {
+                    map.put(j, "test");
                 }
                 map.get(size / 2);
             }
