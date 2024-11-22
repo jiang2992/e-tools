@@ -1,5 +1,6 @@
 package org.jiang.tools.date;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Calendar;
@@ -37,6 +38,16 @@ public class EasyDate {
 
     public static EasyDate of(Date date) {
         return new EasyDate(date);
+    }
+
+    public static EasyDate of(LocalDate localDate) {
+        Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        return of(date);
+    }
+
+    public static EasyDate of(LocalDateTime localDateTime) {
+        Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+        return of(date);
     }
 
     public static EasyDate of(int ms) {
@@ -102,6 +113,15 @@ public class EasyDate {
             return null;
         }
         return LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault());
+    }
+
+    /**
+     * 获取执行后的日期
+     *
+     * @return 日期对象
+     */
+    public LocalDate localDateValue() {
+        return this.localValue().toLocalDate();
     }
 
     /**

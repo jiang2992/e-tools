@@ -1,3 +1,6 @@
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import org.jiang.tools.date.DateCalculateUtils;
 import org.jiang.tools.date.DateFormatUtils;
 import org.jiang.tools.date.EasyDate;
@@ -140,11 +143,16 @@ public class DateTests {
 
         // 格式化时间
         EasyDate.of(new Date()).stringValue("yyyy-MM-dd");
+
+        EasyDate easyDate = EasyDate.of("2021-01", "yyyy-MM");
+        LocalDate localDateTime = easyDate.localDateValue();
+        System.out.println(easyDate.stringValue());
     }
 
     @Test
     public void test(){
-        System.out.println(EasyDate.of("2024-07-16 17:00:00").startTime().value().getTime());
+        Duration between = Duration.between(LocalDateTime.now(),EasyDate.of("2024-11-08 09:57:20").startTime().localValue());
+        System.out.println(between.toMinutes());
     }
 
 }

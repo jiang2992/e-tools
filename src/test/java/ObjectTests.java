@@ -28,7 +28,7 @@ public class ObjectTests {
         System.out.println(easyResolver.get("$"));
         System.out.println(easyResolver.get("$.1"));
         System.out.println(easyResolver.get("$.$last.0.code"));
-        System.out.println(easyResolver.get("$.$last.0.code"));
+        System.out.println(easyResolver.get("$.$last.1.code"));
     }
 
 }
