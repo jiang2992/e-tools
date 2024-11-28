@@ -32,11 +32,12 @@ public class EasyTextArea extends EasyText {
     private int align = TextAlign.LEFT;
 
     /**
-     * 构造方法
-     * 文本颜色默认为黑色
+     * 构造方法 文本颜色默认为黑色
      *
      * @param x       文本位置x
      * @param y       文本位置y
+     * @param width   宽度
+     * @param height  高度
      * @param content 文本内容
      * @param font    文本字体
      */
@@ -49,6 +50,8 @@ public class EasyTextArea extends EasyText {
      *
      * @param x       文本位置x
      * @param y       文本位置y
+     * @param width   宽度
+     * @param height  高度
      * @param content 文本内容
      * @param color   文本颜色
      * @param font    文本字体

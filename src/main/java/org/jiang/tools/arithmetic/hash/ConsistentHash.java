@@ -18,7 +18,7 @@ import org.jiang.tools.exception.BadArgumentException;
  * <br> 建议通过 ConsistentHash 的 putNode、removeNode 来修改
  *
  * @author Bin
- * @date 1.1.5
+ * @since 1.1.5
  */
 @Getter
 public class ConsistentHash {

@@ -17,7 +17,7 @@ import org.jiang.tools.text.RandomUtils;
  * <br> 存储相关状态信息及节点信息，包括真实节点与虚拟节点，但是你并不需要关心任何与虚拟节点相关的数据
  *
  * @author Bin
- * @date 1.1.5
+ * @since 1.1.5
  */
 @Getter
 public class ConsistentHashLoop implements Serializable {

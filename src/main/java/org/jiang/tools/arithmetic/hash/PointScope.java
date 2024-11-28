@@ -9,7 +9,7 @@ import lombok.Data;
  * 一致性哈希点范围
  *
  * @author Bin
- * @date 1.1.5
+ * @since 1.1.5
  */
 @Data
 @AllArgsConstructor

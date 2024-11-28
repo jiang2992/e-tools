@@ -32,8 +32,10 @@ public class EasyLine extends EasyElement {
     /**
      * 构造方法
      *
-     * @param x     矩形位置x
-     * @param y     矩形位置y
+     * @param x     矩形开始位置x
+     * @param y     矩形开始位置y
+     * @param ex    矩形结束位置x
+     * @param ey    矩形结束位置y
      * @param color 画笔颜色
      */
     public EasyLine(int x, int y, int ex, int ey, Color color) {

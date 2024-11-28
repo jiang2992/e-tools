@@ -11,7 +11,7 @@ import lombok.ToString;
  * 一致性哈希节点
  *
  * @author Bin
- * @date 1.1.5
+ * @since 1.1.5
  */
 @Getter
 @AllArgsConstructor
