@@ -1,9 +1,8 @@
 package org.jiang.tools.math;
 
-import org.jiang.tools.exception.DataStatusException;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import org.jiang.tools.exception.DataStatusException;
 
 /**
  * EasyRatio: 提供比率计算相关方法
@@ -47,7 +46,7 @@ public class EasyRatio {
      *
      * @param total 总数
      */
-    private void init(BigDecimal total){
+    private void init(BigDecimal total) {
         this.total = total;
         this.remained = new BigDecimal(total.toString());
         this.remainedRatio = new BigDecimal(RATIO_TOTAL.toString()).setScale(scale, RoundingMode.DOWN);
@@ -109,7 +108,7 @@ public class EasyRatio {
      * @param total 总数
      * @return EasyRatio
      */
-    public EasyRatio addTotal(long total){
+    public EasyRatio addTotal(long total) {
         return addTotal(new BigDecimal(total));
     }
 
@@ -119,7 +118,7 @@ public class EasyRatio {
      * @param total 总数
      * @return EasyRatio
      */
-    public EasyRatio addTotal(int total){
+    public EasyRatio addTotal(int total) {
         return addTotal(new BigDecimal(total));
     }
 
@@ -129,7 +128,7 @@ public class EasyRatio {
      * @param total 总数
      * @return EasyRatio
      */
-    public EasyRatio addTotal(double total){
+    public EasyRatio addTotal(double total) {
         return addTotal(new BigDecimal(total));
     }
 
@@ -139,7 +138,7 @@ public class EasyRatio {
      * @param total 总数
      * @return EasyRatio
      */
-    public EasyRatio addTotal(float total){
+    public EasyRatio addTotal(float total) {
         return addTotal(new BigDecimal(total));
     }
 
@@ -149,8 +148,8 @@ public class EasyRatio {
      * @param total 总数
      * @return EasyRatio
      */
-    public EasyRatio addTotal(BigDecimal total){
-        if(remainedRatio.compareTo(RATIO_TOTAL) < 0) {
+    public EasyRatio addTotal(BigDecimal total) {
+        if (remainedRatio.compareTo(RATIO_TOTAL) < 0) {
             throw new DataStatusException("this ratio has already been used");
         }
         init(this.total.add(total));
@@ -158,8 +157,7 @@ public class EasyRatio {
     }
 
     /**
-     * 设置比率的精度，默认为2
-     * 支持的精度最大为4
+     * 设置比率的精度，默认为2 支持的精度最大为4
      *
      * @param scale 精度
      * @return EasyRatio
@@ -214,9 +212,7 @@ public class EasyRatio {
     }
 
     /**
-     * 将数值与总数计算出一个比率并取出，向下取舍
-     * 当最后一个比率被取出时，会返回所有剩余的比率，以保证总比率为 RATIO_TOTAL
-     * 如果调用该方法时，剩余的比率为0，则返回0
+     * 将数值与总数计算出一个比率并取出，向下取舍 当最后一个比率被取出时，会返回所有剩余的比率，以保证总比率为 RATIO_TOTAL 如果调用该方法时，剩余的比率为0，则返回0
      *
      * @param value 数值
      * @return 比率
@@ -234,6 +230,15 @@ public class EasyRatio {
         remained = remained.subtract(value);
         remainedRatio = remainedRatio.subtract(ratioDecimal).setScale(scale, RoundingMode.DOWN);
         return ratioDecimal.floatValue();
+    }
+
+    /**
+     * 判断是否有剩下比率
+     *
+     * @return 是否存在
+     */
+    public boolean hasRemained() {
+        return this.remainedRatio() > 0;
     }
 
     /**

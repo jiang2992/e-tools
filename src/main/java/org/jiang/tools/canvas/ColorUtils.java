@@ -1,6 +1,6 @@
 package org.jiang.tools.canvas;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.Random;
 
 /**

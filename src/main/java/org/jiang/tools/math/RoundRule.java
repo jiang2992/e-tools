@@ -1,8 +1,7 @@
 package org.jiang.tools.math;
 
-import lombok.Getter;
-
 import java.math.RoundingMode;
+import lombok.Getter;
 
 /**
  * 舍入规则

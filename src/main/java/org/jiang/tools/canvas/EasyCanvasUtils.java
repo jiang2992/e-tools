@@ -1,12 +1,8 @@
 package org.jiang.tools.canvas;
 
-import org.jiang.tools.canvas.element.*;
-import org.jiang.tools.canvas.image.ImageDrawPosition;
-import org.jiang.tools.canvas.image.ImageModeUtils;
-import org.jiang.tools.exception.SystemException;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,6 +10,16 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import javax.imageio.ImageIO;
+import org.jiang.tools.canvas.element.EasyElement;
+import org.jiang.tools.canvas.element.EasyImage;
+import org.jiang.tools.canvas.element.EasyLine;
+import org.jiang.tools.canvas.element.EasyRect;
+import org.jiang.tools.canvas.element.EasyText;
+import org.jiang.tools.canvas.element.EasyTextArea;
+import org.jiang.tools.canvas.image.ImageDrawPosition;
+import org.jiang.tools.canvas.image.ImageModeUtils;
+import org.jiang.tools.exception.SystemException;
 
 /**
  * EasyCanvas 工具类

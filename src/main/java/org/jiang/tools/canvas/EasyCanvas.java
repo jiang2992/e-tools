@@ -1,9 +1,8 @@
 package org.jiang.tools.canvas;
 
+import java.awt.Color;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.awt.*;
 
 /**
  * 画板

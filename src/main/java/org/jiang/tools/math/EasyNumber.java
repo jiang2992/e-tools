@@ -1,10 +1,9 @@
 package org.jiang.tools.math;
 
-import org.jiang.tools.exception.BadArgumentException;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.NumberFormat;
+import org.jiang.tools.exception.BadArgumentException;
 
 /**
  * EasyNumber：提供一系列的数字科学运算方法

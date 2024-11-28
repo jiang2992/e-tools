@@ -1,8 +1,7 @@
 package org.jiang.tools.text;
 
-import org.jiang.tools.constants.TextConstants;
-
 import java.util.concurrent.ThreadLocalRandom;
+import org.jiang.tools.constants.TextConstants;
 
 /**
  * 随机字符工具类

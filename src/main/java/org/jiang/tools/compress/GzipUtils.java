@@ -1,12 +1,17 @@
 package org.jiang.tools.compress;
 
 
-import org.jiang.tools.data.EasyData;
-import org.jiang.tools.text.StringUtils;
-
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
+import org.jiang.tools.data.EasyData;
+import org.jiang.tools.text.StringUtils;
 
 /**
  * Gzip工具类

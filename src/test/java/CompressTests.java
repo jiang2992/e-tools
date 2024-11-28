@@ -1,11 +1,10 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import lombok.SneakyThrows;
 import org.jiang.tools.compress.GzipUtils;
 import org.jiang.tools.data.EasyData;
 import org.junit.Test;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 
 /**
  * 压缩测试类

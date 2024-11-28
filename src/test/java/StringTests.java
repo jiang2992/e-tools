@@ -1,10 +1,9 @@
+import java.util.Map;
 import org.jiang.tools.json.JsonUtils;
 import org.jiang.tools.text.RandomUtils;
 import org.jiang.tools.text.StringUtils;
 import org.jiang.tools.text.StringVerifyUtils;
 import org.junit.Test;
-
-import java.util.Map;
 
 /**
  * 字符串相关测试类

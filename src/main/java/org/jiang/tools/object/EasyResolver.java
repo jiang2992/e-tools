@@ -1,10 +1,5 @@
 package org.jiang.tools.object;
 
-import org.jiang.tools.collection.CollectionUtils;
-import org.jiang.tools.exception.BadArgumentException;
-import org.jiang.tools.exception.PropertyExtractException;
-import org.jiang.tools.text.StringUtils;
-
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 import java.util.Collection;
@@ -13,6 +8,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.BiFunction;
 import java.util.regex.Pattern;
+import org.jiang.tools.collection.CollectionUtils;
+import org.jiang.tools.exception.BadArgumentException;
+import org.jiang.tools.exception.PropertyExtractException;
+import org.jiang.tools.text.StringUtils;
 
 /**
  * EasyResolver：提供对象的解析操作

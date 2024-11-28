@@ -1,12 +1,11 @@
 package org.jiang.tools.text;
 
-import org.jiang.tools.json.JsonUtils;
-import org.jiang.tools.object.EasyResolver;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.jiang.tools.json.JsonUtils;
+import org.jiang.tools.object.EasyResolver;
 
 /**
  * 模板解析器

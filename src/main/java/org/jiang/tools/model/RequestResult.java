@@ -1,6 +1,7 @@
 package org.jiang.tools.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,8 +9,6 @@ import lombok.Setter;
 import org.jiang.tools.constants.StatusCodeConstants;
 import org.jiang.tools.exception.SystemException;
 import org.jiang.tools.json.JsonUtils;
-
-import java.io.Serializable;
 
 
 /**

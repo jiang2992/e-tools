@@ -1,9 +1,8 @@
 package org.jiang.tools.canvas.image;
 
+import java.awt.Image;
 import org.jiang.tools.canvas.element.EasyImage;
 import org.jiang.tools.exception.SystemException;
-
-import java.awt.*;
 
 /**
  * 图片显示模式工具类

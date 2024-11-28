@@ -1,12 +1,11 @@
 package org.jiang.tools.geo;
 
-import org.jiang.tools.exception.BadArgumentException;
-
 import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.jiang.tools.exception.BadArgumentException;
 
 /**
  * EasyGeoArea：提供地理位置区域的计算

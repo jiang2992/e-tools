@@ -1,12 +1,11 @@
 package org.jiang.tools.canvas;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.jiang.tools.canvas.element.EasyElement;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
+import org.jiang.tools.canvas.element.EasyElement;
 
 /**
  * 容器

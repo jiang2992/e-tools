@@ -1,10 +1,9 @@
 package org.jiang.tools.canvas.element;
 
+import java.awt.Color;
 import lombok.Getter;
 import lombok.Setter;
 import org.jiang.tools.canvas.EasyFont;
-
-import java.awt.*;
 
 /**
  * 画板元素：文本

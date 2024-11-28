@@ -1,9 +1,8 @@
+import java.util.Arrays;
+import java.util.List;
 import org.jiang.tools.model.RequestResult;
 import org.jiang.tools.object.EasyResolver;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * 对象测试类

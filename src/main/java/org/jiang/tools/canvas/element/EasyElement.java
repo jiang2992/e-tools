@@ -1,9 +1,8 @@
 package org.jiang.tools.canvas.element;
 
+import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.Serializable;
 
 /**
  * 画板元素

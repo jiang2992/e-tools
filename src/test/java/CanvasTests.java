@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.io.File;
 import lombok.SneakyThrows;
 import org.jiang.tools.canvas.EasyCanvas;
 import org.jiang.tools.canvas.EasyCanvasUtils;
@@ -7,9 +9,6 @@ import org.jiang.tools.canvas.element.EasyText;
 import org.jiang.tools.canvas.image.EasyImageFactory;
 import org.jiang.tools.canvas.image.ImageMode;
 import org.junit.Test;
-
-import java.awt.*;
-import java.io.File;
 
 /**
  * Canvas相关测试类

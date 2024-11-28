@@ -1,12 +1,11 @@
 package org.jiang.tools.test;
 
-import org.jiang.tools.collection.CollectionUtils;
-import org.jiang.tools.text.StringUtils;
-
 import java.util.Collection;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import org.jiang.tools.collection.CollectionUtils;
+import org.jiang.tools.text.StringUtils;
 
 /**
  * 断言工具类

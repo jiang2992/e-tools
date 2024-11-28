@@ -1,9 +1,8 @@
 package org.jiang.tools.json;
 
+import java.util.Map;
 import org.jiang.tools.text.StringUtils;
 import org.jiang.tools.text.TemplateParser;
-
-import java.util.Map;
 
 /**
  * Json模板解析器

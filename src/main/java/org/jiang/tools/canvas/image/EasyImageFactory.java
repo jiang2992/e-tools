@@ -1,12 +1,11 @@
 package org.jiang.tools.canvas.image;
 
-import org.jiang.tools.canvas.element.EasyImage;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import javax.imageio.ImageIO;
+import org.jiang.tools.canvas.element.EasyImage;
 
 /**
  * 图片元素工厂类
