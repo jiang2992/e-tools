@@ -149,7 +149,7 @@ public class ConsistentHashLoop implements Serializable {
             }
             virtualPoints.add(virtualPoint);
         }
-        return this.createNode(point, target, virtualPoints.toArray(new Integer[virtualCount]));
+        return this.createNode(point, target, virtualPoints.toArray(new Integer[0]));
     }
 
     /**
@@ -162,7 +162,7 @@ public class ConsistentHashLoop implements Serializable {
      */
     public ConsistentHashNode createNode(Integer point, Object target, Integer[] virtualPoints) {
         if (point == null) {
-            throw new BadArgumentException("point is null");
+            throw new BadArgumentException("node point can't be null");
         }
         return new ConsistentHashNode(point, target, virtualPoints);
     }
@@ -179,7 +179,7 @@ public class ConsistentHashLoop implements Serializable {
 
     public int hashPoint(Object... objs) {
         if (objs.length == 0) {
-            throw new BadArgumentException("obj is null");
+            throw new BadArgumentException("objects can't be empty");
         }
         return Math.abs(Objects.hash(objs) % this.getPointCount());
     }

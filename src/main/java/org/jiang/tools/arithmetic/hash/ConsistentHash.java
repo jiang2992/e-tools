@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import lombok.Getter;
-import org.jiang.tools.exception.SystemException;
+import org.jiang.tools.exception.BadArgumentException;
 
 /**
  * 一致性哈希算法
@@ -68,7 +68,7 @@ public class ConsistentHash {
      */
     public PointScope[] putNode(ConsistentHashNode node) {
         if (node.getPoint() == null) {
-            throw new SystemException("node point can't be null");
+            throw new BadArgumentException("node point can't be null");
         }
 
         // 添加节点到哈希环
@@ -141,13 +141,11 @@ public class ConsistentHash {
         }
 
         // 如果删除的节点只有一个，则直接返回
-
         if (pointScopeMap.size() <= 1) {
             return pointScopeMap.values().toArray(new PointScope[0]);
         }
 
         // 去掉重叠的影响范围
-
         List<PointScope> result = new ArrayList<>(nextNodeMap.size());
 
         for (Map.Entry<Integer, List<Integer>> entry : nextNodeMap.entrySet()) {
