@@ -1,6 +1,7 @@
 import java.util.Map;
 import org.jiang.tools.json.JsonUtils;
 import org.jiang.tools.text.RandomUtils;
+import org.jiang.tools.text.id.SnowflakeFactory;
 import org.jiang.tools.text.StringUtils;
 import org.jiang.tools.text.StringVerifyUtils;
 import org.junit.Test;
@@ -17,7 +18,7 @@ public class StringTests {
      * json转换
      */
     @Test
-    public void json(){
+    public void json() {
         String json = "{\n"
                 + "\"IM_BASEINFO\":{\"I_MSGID\":\"str1234\",\"I_CODE\":\"S0339\",\"I_SNDTIME\":\"20191224141700000000\",\"I_LANGUAGE\":\"1\",\"I_SOUSYS\":\"ABN\",\"I_USRNAME\":\"OA_TEST\",\"I_KEY1\":\"str1234\",\"I_KEY2\":\"str1234\",\"I_KEY3\":\"str1234\"},\n"
                 + "\"IM_REQ_DATA\":\n"
@@ -26,9 +27,21 @@ public class StringTests {
                 + "}\n"
                 + "}";
         System.out.println(json);
-        json  = json.replaceAll("\n", "");
-        json  = json.replaceAll("\t", "");
+        json = json.replaceAll("\n", "");
+        json = json.replaceAll("\t", "");
         System.out.println(JsonUtils.toBean(json, Map.class));
+    }
+
+
+    /**
+     * 随机数生成
+     */
+    @Test
+    public void snowflake() {
+        SnowflakeFactory snowflakeFactory = SnowflakeFactory.create(1023);
+        for (int i = 0; i < 1000; i++) {
+            System.out.println(snowflakeFactory.get());
+        }
     }
 
     /**
