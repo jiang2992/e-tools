@@ -10,7 +10,7 @@
 <dependency>
     <groupId>top.efcloud</groupId>
     <artifactId>e-tools</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.5</version>
 </dependency>
 ```
 ---

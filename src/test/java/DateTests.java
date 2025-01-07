@@ -48,10 +48,7 @@ public class DateTests {
 
     @Test
     public void extraDayOnBefore() {
-        String str = EasyDate.now()
-                .extra(calendar -> calendar.add(Calendar.DAY_OF_MONTH, -3))
-                .startTime()
-                .stringValue();
+        String str = EasyDate.now().extra(calendar -> calendar.add(Calendar.DAY_OF_MONTH, -3)).startTime().stringValue();
         System.out.println(str);
         Assert.assertNotNull(str);
     }
@@ -149,8 +146,8 @@ public class DateTests {
     }
 
     @Test
-    public void test(){
-        Duration between = Duration.between(LocalDateTime.now(),EasyDate.of("2024-11-08 09:57:20").startTime().localValue());
+    public void test() {
+        Duration between = Duration.between(LocalDateTime.now(), EasyDate.of("2024-11-08 09:57:20").startTime().localValue());
         System.out.println(between.toMinutes());
     }
 
