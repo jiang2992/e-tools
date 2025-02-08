@@ -2,8 +2,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.TreeSet;
 import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
+import org.jiang.tools.collection.CollectionUtils;
 import org.jiang.tools.collection.list.SkipList;
 import org.jiang.tools.decorator.RunTimeDecorator;
 import org.jiang.tools.text.RandomUtils;
@@ -123,6 +125,15 @@ public class CollectionTests {
         System.out.println("剩余对象大小: " + collection.size());
 
         System.gc();
+    }
+
+    @Test
+    public void batchTest(){
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 99; i++) {
+            list.add(i);
+        }
+        System.out.println(CollectionUtils.batch(list,8));
     }
 
 }
