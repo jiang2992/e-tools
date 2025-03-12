@@ -80,6 +80,15 @@ public class ConvertUtils {
         return false;
     }
 
+    /**
+     * 将值转换为目标类型
+     * <br> 支持数组与集合的相互转换
+     *
+     * @param value      值
+     * @param targetType 目标类型
+     * @param <T>        目标类型泛型
+     * @return 转换后的值
+     */
     @SuppressWarnings("unchecked")
     public static <T> T to(Object value, Class<T> targetType) {
         if (value == null) {
@@ -88,12 +97,15 @@ public class ConvertUtils {
         if (targetType.isAssignableFrom(value.getClass())) {
             return (T) value;
         }
+        if (typeEquals(value.getClass(), targetType)) {
+            return (T) value;
+        }
         if (targetType.equals(String.class)) {
             return (T) value.toString();
         }
 
         Stream<Object> stream = null;
-        
+
         if (value.getClass().isArray()) {
             stream = Arrays.stream((Object[]) value);
         } else if (Iterable.class.isAssignableFrom(value.getClass())) {
