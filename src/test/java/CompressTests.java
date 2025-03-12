@@ -74,4 +74,20 @@ public class CompressTests {
         System.out.println("target file size: " + targetFile.length() / (1024 * 1024) + "mb");
     }
 
+
+    @Test
+    @SneakyThrows
+    public void gzipTest2() {
+        EasyData sourceData = EasyData.of("哈哈哈哈哈说的对，我们明天去玩吧！");
+        System.out.println("source data size:" + sourceData.value().length);
+
+        EasyData easyData = GzipUtils.compress(sourceData);
+        System.out.println("compressed data size:" + easyData.value().length);
+
+        sourceData = GzipUtils.decompress(easyData);
+        System.out.println("decompressed data size:" + sourceData.value().length);
+
+        System.out.println(sourceData.stringValue());
+    }
+
 }

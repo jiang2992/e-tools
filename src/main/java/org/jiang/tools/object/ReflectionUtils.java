@@ -19,16 +19,25 @@ public class ReflectionUtils {
      * @return 属性列表
      */
     public static List<Field> getAllFields(Object obj) {
-        List<Field> fields = new ArrayList<>();
-        Class<?> currentClass = obj.getClass();
+        return getAllFields(obj.getClass());
+    }
 
-        while (currentClass != null) {
-            Field[] declaredFields = currentClass.getDeclaredFields();
+    /**
+     * 获取类的所有属性(包括父类)
+     *
+     * @param c 类
+     * @return 属性列表
+     */
+    public static List<Field> getAllFields(Class<?> c) {
+        List<Field> fields = new ArrayList<>();
+
+        while (c != null) {
+            Field[] declaredFields = c.getDeclaredFields();
             for (Field field : declaredFields) {
                 field.setAccessible(true);
                 fields.add(field);
             }
-            currentClass = currentClass.getSuperclass();
+            c = c.getSuperclass();
         }
 
         return fields;
@@ -69,16 +78,16 @@ public class ReflectionUtils {
      * @throws IllegalAccessException 属性访问异常
      */
     public static void setFieldValue(Object obj, String fieldName, Object value) throws NoSuchFieldException, IllegalAccessException {
-        Class<?> currentClass = obj.getClass();
+        Class<?> currentType = obj.getClass();
 
-        while (currentClass != null) {
+        while (currentType != null) {
             try {
-                Field field = currentClass.getDeclaredField(fieldName);
+                Field field = currentType.getDeclaredField(fieldName);
                 field.setAccessible(true);
                 field.set(obj, value);
                 return;
             } catch (NoSuchFieldException e) {
-                currentClass = currentClass.getSuperclass();
+                currentType = currentType.getSuperclass();
             }
         }
 

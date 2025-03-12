@@ -162,4 +162,17 @@ public class CollectionUtils {
         return result;
     }
 
+    /**
+     * 获取集合大小
+     *
+     * @param collection 集合
+     * @return 集合大小
+     */
+    public static long size(Collection<?> collection) {
+        if (collection == null) {
+            return 0;
+        }
+        return collection.size();
+    }
+
 }
