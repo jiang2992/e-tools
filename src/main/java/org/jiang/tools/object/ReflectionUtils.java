@@ -1,6 +1,8 @@
 package org.jiang.tools.object;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,6 +94,21 @@ public class ReflectionUtils {
         }
 
         throw new NoSuchFieldException("No such field: " + fieldName);
+    }
+
+    /**
+     * 获取字段的泛型类型
+     *
+     * @param field 字段
+     * @return 泛型类型数组
+     */
+    public static Type[] getGenericTypes(Field field) {
+        Type genericType = field.getGenericType();
+        if (genericType instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType) genericType;
+            return parameterizedType.getActualTypeArguments();
+        }
+        return new Type[0];
     }
 
 }
