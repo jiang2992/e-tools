@@ -10,7 +10,6 @@ import java.util.Objects;
 import java.util.TreeMap;
 import lombok.Getter;
 import org.jiang.tools.exception.BadArgumentException;
-import org.jiang.tools.text.RandomUtils;
 
 /**
  * 一致性哈希环
@@ -141,7 +140,7 @@ public class ConsistentHashLoop implements Serializable {
         for (int i = 0; i < virtualCount; i++) {
             StringBuilder sb = new StringBuilder(point);
             sb.append("#");
-            sb.append(RandomUtils.generate(6));
+            sb.append(i * i);
             int virtualPoint = generateNodePoint(sb);
             if (point == virtualPoint || virtualPoints.contains(virtualPoint)) {
                 i--;
@@ -169,10 +168,10 @@ public class ConsistentHashLoop implements Serializable {
 
     private int generateNodePoint(Object obj) {
         int point;
-        String offset = null;
+        int offset = 0;
         do {
             point = this.hashPoint(obj, offset);
-            offset = RandomUtils.generate(6);
+            offset += 1;
         } while (nodes.containsKey(point));
         return point;
     }

@@ -3,6 +3,7 @@ package org.jiang.tools.collection;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
@@ -173,6 +174,38 @@ public class CollectionUtils {
             return 0;
         }
         return collection.size();
+    }
+
+    /**
+     * 判断两个集合元素是否一致（无关顺序）
+     *
+     * @param collection1 集合1
+     * @param collection2 集合2
+     * @return 是否一致
+     */
+    public static boolean elementsEquals(Collection<?> collection1, Collection<?> collection2) {
+        if (isEmpty(collection1)) {
+            return isEmpty(collection2);
+        }
+
+        // 用 HashMap 统计频次
+        HashMap<Object, Integer> map = new HashMap<>();
+
+        for (Object value : collection1) {
+            map.put(value, map.getOrDefault(value, 0) + 1);
+        }
+
+        for (Object value : collection2) {
+            if (!map.containsKey(value)) {
+                return false;
+            }
+            map.put(value, map.get(value) - 1);
+            if (map.get(value) == 0) {
+                map.remove(value);
+            }
+        }
+
+        return map.isEmpty();
     }
 
 }
