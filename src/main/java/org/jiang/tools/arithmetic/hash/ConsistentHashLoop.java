@@ -6,10 +6,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.TreeMap;
 import lombok.Getter;
 import org.jiang.tools.exception.BadArgumentException;
+import org.jiang.tools.secutiry.MurmurHash3;
 
 /**
  * 一致性哈希环
@@ -180,7 +180,11 @@ public class ConsistentHashLoop implements Serializable {
         if (objs.length == 0) {
             throw new BadArgumentException("objects can't be empty");
         }
-        return Math.abs(Objects.hash(objs) % this.getPointCount());
+        StringBuilder data = new StringBuilder();
+        for (Object obj : objs) {
+            data.append(obj.toString());
+        }
+        return Math.abs(MurmurHash3.hash32(data) % this.getPointCount());
     }
 
     /**

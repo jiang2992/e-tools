@@ -15,6 +15,7 @@ import lombok.Setter;
 import lombok.SneakyThrows;
 import org.jiang.tools.decorator.RunTimeDecorator;
 import org.jiang.tools.json.JsonUtils;
+import org.jiang.tools.secutiry.MurmurHash3;
 import org.junit.Test;
 
 /**
@@ -74,6 +75,16 @@ public class OtherTests {
         for (int i = 0; i < 1000; i++) {
             int n = ThreadLocalRandom.current().nextInt(1200);
             System.out.println(n);
+        }
+    }
+
+    /**
+     * 随机数
+     */
+    @Test
+    public void test3() {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(MurmurHash3.hash32("50#4") % 10000);
         }
     }
 
