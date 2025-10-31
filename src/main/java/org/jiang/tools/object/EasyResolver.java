@@ -82,7 +82,7 @@ public class EasyResolver {
      */
     public Object get(String exp) {
         if (!verifyExp(exp)) {
-            return new PropertyExtractException();
+            throw new PropertyExtractException();
         }
         if (exp.equals(EXP_ROOT_SYMBOL)) {
             return this.sourceObject;

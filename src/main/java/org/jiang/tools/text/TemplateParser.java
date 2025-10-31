@@ -57,6 +57,7 @@ public class TemplateParser {
             if (!matched.containsKey(fullExp)) {
                 Object value = easyResolver.get(exp);
                 String strValue = this.objectToString(value);
+                strValue = strValue.replace("\\", "\\\\");
                 matched.put(fullExp, strValue);
             }
         }

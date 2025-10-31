@@ -1,6 +1,8 @@
+import java.util.HashMap;
 import java.util.Map;
 import org.jiang.tools.json.JsonUtils;
 import org.jiang.tools.text.RandomUtils;
+import org.jiang.tools.text.TemplateParser;
 import org.jiang.tools.text.id.SnowflakeFactory;
 import org.jiang.tools.text.StringUtils;
 import org.jiang.tools.text.StringVerifyUtils;
@@ -30,6 +32,17 @@ public class StringTests {
         json = json.replaceAll("\n", "");
         json = json.replaceAll("\t", "");
         System.out.println(JsonUtils.toBean(json, Map.class));
+    }
+
+    @Test
+    public void object() {
+        TemplateParser templateParser = new TemplateParser();
+        Map<String,String> params = new HashMap<>();
+        params.put("value","A\\B");
+        String result = templateParser.format("{\"key\":\"${$.value}\"}", params);
+        System.out.println(result);
+        JsonUtils.toBean(result, Map.class);
+        System.out.println(JsonUtils.toBean(result, Map.class));
     }
 
 
