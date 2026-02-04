@@ -1,4 +1,6 @@
 import java.math.BigDecimal;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -13,6 +15,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.SneakyThrows;
+import org.jiang.tools.data.EasyData;
 import org.jiang.tools.decorator.RunTimeDecorator;
 import org.jiang.tools.json.JsonUtils;
 import org.jiang.tools.secutiry.MurmurHash3;
@@ -86,6 +89,15 @@ public class OtherTests {
         for (int i = 0; i < 10; i++) {
             System.out.println(MurmurHash3.hash32("50#4") % 10000);
         }
+    }
+
+    /**
+     * 读取网络图片
+     */
+    @Test
+    public void test4() throws MalformedURLException {
+        byte[] value = EasyData.of(new URL("https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png")).value();
+        System.out.println(value.length);
     }
 
 }

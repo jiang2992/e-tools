@@ -4,7 +4,10 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.function.Supplier;
+import org.jiang.tools.net.NetResourceUtils;
 
 /**
  * EasyData：提供小数据的存储和基础操作
@@ -14,11 +17,20 @@ import java.nio.charset.StandardCharsets;
  */
 public class EasyData {
 
-    private final byte[] bytes;
-    private String string;
+    private byte[] bytes;
+
+    private Supplier<byte[]> supplier;
+
+    private boolean executed = false;
 
     public EasyData(byte[] bytes) {
+        this.supplier = null;
         this.bytes = bytes;
+    }
+
+    public EasyData(Supplier<byte[]> supplier) {
+        this.bytes = null;
+        this.supplier = supplier;
     }
 
     public static EasyData of(byte[] bytes) {
@@ -26,28 +38,54 @@ public class EasyData {
     }
 
     public static EasyData of(String string) {
-        EasyData easyData = of(string.getBytes());
-        easyData.string = string;
-        return easyData;
+        return new EasyData(() -> string.getBytes(StandardCharsets.UTF_8));
+    }
+
+    public static EasyData of(URL url) {
+        return new EasyData(() -> {
+            try {
+                return NetResourceUtils.getBytes(url);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    public EasyData reset() {
+        if (supplier != null) {
+            this.bytes = null;
+        }
+        this.executed = false;
+        return this;
+    }
+
+    public void destroy() {
+        this.bytes = null;
+        this.supplier = null;
     }
 
     public byte[] value() {
+        if (bytes != null) {
+            return bytes;
+        }
+        if (executed || supplier == null) {
+            return null;
+        }
+        this.executed = true;
+        this.bytes = supplier.get();
         return this.bytes;
     }
 
     public String stringValue() {
-        if (this.string == null) {
-            this.string = new String(this.bytes, StandardCharsets.UTF_8);
-        }
-        return this.string;
+        return new String(this.value(), StandardCharsets.UTF_8);
     }
 
     public InputStream streamValue() {
-        return new ByteArrayInputStream(bytes);
+        return new ByteArrayInputStream(this.value());
     }
 
     public void write(OutputStream outputStream) throws IOException {
-        outputStream.write(bytes);
+        outputStream.write(this.value());
     }
 
 }
