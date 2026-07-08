@@ -8,15 +8,15 @@ package org.jiang.tools.decorator;
  */
 public class AsynExecDecorator extends BaseDecorator<Thread> {
 
-    private final Thread thread;
+    private final CodeSegment codeSegment;
 
     public AsynExecDecorator(CodeSegment codeSegment) {
-        super(codeSegment);
-        thread = new Thread(codeSegment::exec);
+        this.codeSegment = codeSegment;
     }
 
     @Override
     public Thread run() {
+        Thread thread = new Thread(codeSegment::exec);
         if (!thread.isAlive()) {
             thread.start();
         }

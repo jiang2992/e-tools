@@ -2,10 +2,10 @@ import java.util.HashMap;
 import java.util.Map;
 import org.jiang.tools.json.JsonUtils;
 import org.jiang.tools.text.RandomUtils;
-import org.jiang.tools.text.TemplateParser;
-import org.jiang.tools.text.id.SnowflakeFactory;
 import org.jiang.tools.text.StringUtils;
 import org.jiang.tools.text.StringVerifyUtils;
+import org.jiang.tools.text.TemplateParser;
+import org.jiang.tools.text.id.SnowflakeFactory;
 import org.junit.Test;
 
 /**

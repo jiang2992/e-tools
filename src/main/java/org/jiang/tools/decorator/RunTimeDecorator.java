@@ -10,8 +10,10 @@ import java.util.function.Consumer;
  */
 public class RunTimeDecorator extends BaseDecorator<Long> {
 
+    private final CodeSegment codeSegment;
+
     public RunTimeDecorator(CodeSegment codeSegment) {
-        super(codeSegment);
+        this.codeSegment = codeSegment;
     }
 
     @Override

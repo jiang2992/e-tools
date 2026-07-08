@@ -1,8 +1,6 @@
 package org.jiang.tools.text.id;
 
 import java.util.UUID;
-import org.jiang.tools.exception.BadArgumentException;
-import org.jiang.tools.lock.SpinLock;
 
 /**
  * ID工具类
